@@ -1,3 +1,23 @@
-<p>main-layout works!</p>
-
-<router-outlet></router-outlet>
+<nav class="navbar main">
+    <h1>
+      <a [routerLink]="['/']">AllJob</a>
+    </h1>
+    <ul>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/']">Home</a>
+      </li>
+      <li routerLinkActive="active"><a routerLink="/job">Job</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
+  
+      <li><button class="btn">Login</button></li>
+      <li><button class="btn">Logout</button></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <div class="card">
+  
+      <router-outlet></router-outlet>
+  
+    </div>
+  </div>

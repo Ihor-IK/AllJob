@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobPageComponent } from './job-page/job-page.component';
+import { JobComponent } from './shared/components/job/job.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     HomePageComponent,
-    JobPageComponent
+    JobPageComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
