@@ -9,7 +9,7 @@
       <li routerLinkActive="active"><a routerLink="/job">Job</a></li>
       <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
   
-      <li><button class="btn">Login</button></li>
+      <li><button class="btn" [routerLink]="['/admin', 'login']">Login</button></li>
       <li><button class="btn">Logout</button></li>
     </ul>
   </nav>
