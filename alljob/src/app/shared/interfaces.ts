@@ -7,4 +7,12 @@ export interface User {
     idToken: string
     expiresIn: string
   }
+
+  export interface Job {
+    id?: string
+    title: string
+    text: string
+    author: string
+    date: Date
+  }
   
