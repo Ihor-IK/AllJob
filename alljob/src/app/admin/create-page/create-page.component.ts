@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../../shared/interfaces';
+import { JobsService } from 'src/app/shared/jobs.service';
 
 @Component({
   selector: 'app-create-page',
@@ -11,7 +12,7 @@ export class CreatePageComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() {
+  constructor(private jobsService: JobsService ) {
   }
 
   ngOnInit() {
@@ -33,7 +34,11 @@ export class CreatePageComponent implements OnInit {
       text: this.form.value.text,
       date: new Date()
     }
-    console.log(job)
+
+    this.jobsService.create(job).subscribe(() => {
+      this.form.reset()
+    })
+    // console.log(job)
   }
 
 }

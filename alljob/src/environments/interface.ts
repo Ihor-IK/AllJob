@@ -1,6 +1,7 @@
 export interface Environment {
+    production: boolean,
     apiKey: string,
-    production: boolean
+    fbDbUrl: string
         // apiKey: "AIzaSyBMtwtbbRtUG7Z-KHxZhA8eXu5NrXEF-Yw",
         // authDomain: "alljob-56745.firebaseapp.com",
         // databaseURL: "https://alljob-56745.firebaseio.com",
