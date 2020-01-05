@@ -31,4 +31,8 @@ export class JobsService {
           }))
       }))
   }
+
+  remove(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.fbDbUrl}/jobs/${id}.json`)
+  }
 }

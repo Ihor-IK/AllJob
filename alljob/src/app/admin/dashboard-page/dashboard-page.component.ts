@@ -12,6 +12,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   jobs: Job[] = []
   pSub: Subscription
+  dSub: Subscription
   searchStr = ''
 
   constructor(private jobsService: JobsService) {
@@ -24,14 +25,18 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   }
 
   remove(id: string) {
-
+    this.dSub = this.jobsService.remove(id).subscribe(() => {
+      this.jobs = this.jobs.filter(job => job.id !== id)
+    })
   }
 
   ngOnDestroy() {
     if (this.pSub) {
       this.pSub.unsubscribe()
     }
+    if (this.dSub) {
+      this.dSub.unsubscribe()
+    }
   }
 
 }
-
