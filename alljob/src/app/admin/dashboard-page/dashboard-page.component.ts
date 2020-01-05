@@ -12,6 +12,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   jobs: Job[] = []
   pSub: Subscription
+  searchStr = ''
 
   constructor(private jobsService: JobsService) {
   }

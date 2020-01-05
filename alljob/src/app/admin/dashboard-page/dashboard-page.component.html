@@ -1,6 +1,6 @@
 <div *ngIf="jobs.length; else loading">
     <div class="form-control">
-      <input type="text" placeholder="Find a job...">
+      <input type="text" placeholder="Find a job..." [(ngModel)]="searchStr">
     </div>
     <table>
       <thead>
@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let job of jobs; let idx = index">
+      <tr *ngFor="let job of jobs | searchJobs:searchStr; let idx = index">
         <td>{{ idx + 1 }}</td>
         <td>{{ job.author }}</td>
         <td>{{ job.title }}</td>
