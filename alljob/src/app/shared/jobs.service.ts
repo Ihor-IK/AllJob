@@ -19,4 +19,16 @@ export class JobsService {
         }
       }))
   }
+  getAll(): Observable<Job[]> {
+    return this.http.get(`${environment.fbDbUrl}/jobs.json`)
+      .pipe(map((response: {[key: string]: any}) => {
+        return Object
+          .keys(response)
+          .map(key => ({
+            ...response[key],
+            id: key,
+            date: new Date(response[key].date)
+          }))
+      }))
+  }
 }
