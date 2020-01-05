@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {JobsService} from '../../shared/jobs.service';
 import {Job} from '../../shared/interfaces';
 import {Subscription} from 'rxjs';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -15,7 +16,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   dSub: Subscription
   searchStr = ''
 
-  constructor(private jobsService: JobsService) {
+  constructor(private jobsService: JobsService,
+    private alert: AlertService) {
   }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   remove(id: string) {
     this.dSub = this.jobsService.remove(id).subscribe(() => {
       this.jobs = this.jobs.filter(job => job.id !== id)
+      this.alert.warning('The job was delete')
     })
   }
 

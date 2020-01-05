@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../../shared/interfaces';
 import { JobsService } from 'src/app/shared/jobs.service';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-create-page',
@@ -12,7 +13,8 @@ export class CreatePageComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private jobsService: JobsService ) {
+  constructor(private jobsService: JobsService,
+    private alert: AlertService ) {
   }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class CreatePageComponent implements OnInit {
 
     this.jobsService.create(job).subscribe(() => {
       this.form.reset()
+      this.alert.success('The job was created')
     })
     // console.log(job)
   }

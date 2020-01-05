@@ -5,6 +5,7 @@ import {switchMap} from 'rxjs/operators';
 import {Job} from '../../shared/interfaces';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -21,7 +22,8 @@ export class EditPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private jobsService: JobsService
+    private jobsService: JobsService,
+    private alert: AlertService
   ) {
   }
 
@@ -59,6 +61,7 @@ export class EditPageComponent implements OnInit {
       title: this.form.value.title
     }).subscribe(() => {
       this.submitted = false
+      this.alert.success('The job was update')
     })
   }
 }
