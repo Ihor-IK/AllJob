@@ -32,7 +32,20 @@ export class JobsService {
       }))
   }
 
+  getById(id: string): Observable<Job> {
+    return this.http.get<Job>(`${environment.fbDbUrl}/jobs/${id}.json`)
+      .pipe(map((job: Job) => {
+        return {
+          ...job, id,
+          date: new Date(job.date)
+        }
+      }))
+  }
+
   remove(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.fbDbUrl}/jobs/${id}.json`)
+  }
+  update(job: Job): Observable<Job> {
+    return this.http.patch<Job>(`${environment.fbDbUrl}/jobs/${job.id}.json`, job)
   }
 }
