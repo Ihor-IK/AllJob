@@ -1,47 +1,22 @@
-<div class="job">
-    <div class="header">
-      <h1>Job title</h1>
+  <div *ngIf="job$ | async as job; else loading">
+    <div class="job">
+      <div class="header">
+        <h1>{{ job.title }}</h1>
   
-      <button routerLink="/" class="btn btn-link">Home</button>
-    </div>
+        <button routerLink="/" class="btn btn-link">Home</button>
+      </div>
   
-    <div class="info">
-      <strong>Company</strong>
-      <small>13.12.2019</small>
-    </div>
+      <div class="info">
+        <strong>{{ job.author }}</strong>
+        <small>{{ job.date | date:'medium':null:'en' }}</small>
+      </div>
   
-    <div>
-    <pre>
-        KROMAD offers a part-time position consisting of approximately 20-25 hours a week in a fast-paced, design-forward, pro-active environment. You should be ideas-driven with a highly creative spirit and infectious attitude to “get it done”.
-Our office is small but powerful. You’ll find it to be the perfect sized environment for learning. As our Web Developer, you will be working closely with various brands and clients on their web design and development needs, all while maintaining and developing our brand mission.
-_________
-As our Web Developer, you will: 
-Work hand-in-hand with our graphic designers on various web projects
-Contribute to a large variety of projects
-Design, develop and maintain clients' websites
-_________
-Qualifications: 
-Must have experience with Wordpress & Shopify
-Must have experience with HTML/CSS
-Must be creative!
-Must have basic knowledge of Photoshop
-Be current with web technology
-Knowledge of cross-browser compatibility issues and responsive website design
-Extremely organized and detail-oriented
-Able to work in a very fast-paced environment and meet deadlines!
-MUST be based in Montreal & available to work in-house
-And lastly, must have a fantastic sense of humor
-_________
-Please send us your cv and portfolio (or at least a few website links)!
-Job Type: Part-time
-Salary: $25.00 to $30.00 /hour
-Experience:
-Web Development: 1 year (Preferred)
-Location:
-Montréal, QC (Required)
-Language:
-English (Required)
-French (Preferred)
-    </pre>  
+      <div>
+        <quill-view-html [content]="job.text"></quill-view-html>
+      </div>
     </div>
   </div>
+  
+  <ng-template #loading>
+    <p class="text-center">loading job...</p>
+  </ng-template>
