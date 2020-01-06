@@ -1,16 +1,16 @@
 <div class="card">
-    <div class="card-header">
-      <h2>Job title</h2>
-  
-      <small>12.12.2019</small>
-    </div>
-  
-    <div>
-      <small>Ihor</small>
-    </div>
-  
-    <button
-      [routerLink]="['/job', 12312]"
-      class="btn btn-dark"
+  <div class="card-header">
+  <h2>{{ job.title }}</h2>
+
+  <small>{{ job.date | date:'dd.MM.yyyy' }}</small>
+</div>
+
+<div>
+  <small>{{ job.author }}</small>
+</div>
+
+<button
+  [routerLink]="['/job', job.id]"
+  class="btn btn-dark"
     >Open</button>
   </div>

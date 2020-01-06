@@ -1,5 +1,13 @@
-<div class="jobs">
-    <app-job></app-job>
-    <app-job></app-job>
-    <app-job></app-job>
+<div
+  *ngIf="jobs$ | async as jobs; else loading"
+  class="jobs"
+>
+  <app-job
+    *ngFor="let job of jobs"
+    [job]="job"
+  ></app-job>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">loading jobs...</p>
+</ng-template>
