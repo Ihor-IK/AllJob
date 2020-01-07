@@ -35,8 +35,14 @@ export class EditPageComponent implements OnInit {
     ).subscribe((job: Job) => {
       this.job = job
       this.form = new FormGroup({
-        title: new FormControl(job.title, Validators.required),
-        text: new FormControl(job.text, Validators.required)
+      title: new FormControl(job.title, Validators.required),
+      text: new FormControl(job.text, Validators.required),
+      author: new FormControl(null, Validators.required),
+      city: new FormControl(null, Validators.required),
+      companyDescription: new FormControl(null, Validators.required),
+      salary: new FormControl(null, Validators.required),
+      type: new FormControl(null, Validators.required),
+      requiredSkills: new FormControl(null, Validators.required)
       })
     })
   }
@@ -57,8 +63,14 @@ export class EditPageComponent implements OnInit {
 
     this.uSub = this.jobsService.update({
       ...this.job,
+      author: this.form.value.author,
       text: this.form.value.text,
-      title: this.form.value.title
+      title: this.form.value.title,
+      city: this.form.value.city,
+      companyDescription: this.form.value.companyDescription,
+      salary: this.form.value.salary,
+      type: this.form.value.type,
+      requiredSkills: this.form.value.requiredSkills
     }).subscribe(() => {
       this.submitted = false
       this.alert.success('The job was update')

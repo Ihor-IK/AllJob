@@ -21,7 +21,12 @@ export class CreatePageComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
-      author: new FormControl(null, Validators.required)
+      author: new FormControl(null, Validators.required),
+      city: new FormControl(null, Validators.required),
+      companyDescription: new FormControl(null, Validators.required),
+      salary: new FormControl(null, Validators.required),
+      type: new FormControl(null, Validators.required),
+      requiredSkills: new FormControl(null, Validators.required)
     })
   }
 
@@ -34,7 +39,12 @@ export class CreatePageComponent implements OnInit {
       title: this.form.value.title,
       author: this.form.value.author,
       text: this.form.value.text,
-      date: new Date()
+      date: new Date(),
+      city: this.form.value.city,
+      companyDescription: this.form.value.companyDescription,
+      salary: this.form.value.salary,
+      type: this.form.value.type,
+      requiredSkills: this.form.value.requiredSkills
     }
 
     this.jobsService.create(job).subscribe(() => {
