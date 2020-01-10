@@ -14,11 +14,12 @@ export interface User {
     text: string
     author: string
     date: Date
-    city?: string
-    companyDescription?: string
-    salary?: string
-    type?: string
-    requiredSkills?: string
+    dateEnd?: Date
+    city: string
+    companyDescription: string
+    salary: string
+    type: string
+    requiredSkills: string
   }
 
   export interface FbCreateResponse {

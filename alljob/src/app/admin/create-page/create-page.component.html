@@ -118,6 +118,22 @@ class="form-control"
 </div>
 </div>
 
+<div
+class="form-control"
+[ngClass]="{invalid: form.get('dateEnd').touched && form.get('dateEnd').invalid}"
+>
+<label for="dateEnd">dateEnd:</label>
+<input id="dateEnd" type="date" formControlName="dateEnd">
+<div
+  *ngIf="form.get('dateEnd').touched && form.get('dateEnd').invalid"
+  class="validation"
+>
+  <small *ngIf="form.get('dateEnd').errors.required">
+    Enter dateEnd
+  </small>
+</div>
+</div>
+
   
     <button
       type="submit"

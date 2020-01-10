@@ -6,6 +6,7 @@
       <thead>
       <tr>
         <th>#</th>
+        <th>Act</th>
         <th>Author</th>
         <th>Title</th>
         <th>Date</th>
@@ -14,20 +15,13 @@
         <th>Salary</th>
         <th>Type</th>
         <th>Required Skills</th>
-        <th>Act</th>
+        <th>Date End</th>
+        
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let job of jobs | searchJobs:searchStr; let idx = index">
         <td>{{ idx + 1 }}</td>
-        <td>{{ job.author }}</td>
-        <td>{{ job.title }}</td>
-        <td>{{ job.date | date:'medium' :null:'En'}}</td>
-        <td>{{ job.city }}</td>
-        <td>{{ job.companyDescription }}</td>
-        <td>{{ job.salary }}</td>
-        <td>{{ job.type }}</td>
-        <td>{{ job.requiredSkills }}</td>
         <td>
           <button
             class="btn btn-link open"
@@ -37,6 +31,15 @@
           </button>
           <a (click)="remove(job.id)">Delete</a>
         </td>
+        <td>{{ job.author }}</td>
+        <td>{{ job.title }}</td>
+        <td>{{ job.date | date:'medium' :null:'En'}}</td>
+        <td>{{ job.city }}</td>
+        <td>{{ job.companyDescription }}</td>
+        <td>{{ job.salary }}</td>
+        <td>{{ job.type }}</td>
+        <td>{{ job.requiredSkills }}</td>
+        <td>{{ job.dateEnd }}</td>
       </tr>
       </tbody>
     </table>

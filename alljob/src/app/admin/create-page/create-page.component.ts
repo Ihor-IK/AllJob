@@ -26,7 +26,8 @@ export class CreatePageComponent implements OnInit {
       companyDescription: new FormControl(null, Validators.required),
       salary: new FormControl(null, Validators.required),
       type: new FormControl(null, Validators.required),
-      requiredSkills: new FormControl(null, Validators.required)
+      requiredSkills: new FormControl(null, Validators.required),
+      dateEnd: new FormControl(null, Validators.required)
     })
   }
 
@@ -34,12 +35,13 @@ export class CreatePageComponent implements OnInit {
     if (this.form.invalid) {
       return
     }
-
+  
     const job: Job = {
       title: this.form.value.title,
       author: this.form.value.author,
       text: this.form.value.text,
       date: new Date(),
+      dateEnd: this.form.value.dateEnd,
       city: this.form.value.city,
       companyDescription: this.form.value.companyDescription,
       salary: this.form.value.salary,

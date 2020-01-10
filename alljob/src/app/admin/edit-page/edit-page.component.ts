@@ -42,7 +42,9 @@ export class EditPageComponent implements OnInit {
       companyDescription: new FormControl(null, Validators.required),
       salary: new FormControl(null, Validators.required),
       type: new FormControl(null, Validators.required),
-      requiredSkills: new FormControl(null, Validators.required)
+      requiredSkills: new FormControl(null, Validators.required),
+      date: new FormControl(null, Validators.required),
+      dateEnd: new FormControl(null, Validators.required)
       })
     })
   }
@@ -70,7 +72,9 @@ export class EditPageComponent implements OnInit {
       companyDescription: this.form.value.companyDescription,
       salary: this.form.value.salary,
       type: this.form.value.type,
-      requiredSkills: this.form.value.requiredSkills
+      requiredSkills: this.form.value.requiredSkills,
+      date: this.form.value.date,
+      dateEnd: this.form.value.dateEnd
     }).subscribe(() => {
       this.submitted = false
       this.alert.success('The job was update')
