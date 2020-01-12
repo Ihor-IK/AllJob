@@ -14,6 +14,7 @@ import { JobComponent } from './shared/components/job/job.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { environment } from '../environments/environment';
+import { SearchesComponent } from './shared/components/searches/searches.component';
 
 registerLocaleData(enLocale, 'en')
 
@@ -29,7 +30,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MainLayoutComponent,
     HomePageComponent,
     JobPageComponent,
-    JobComponent
+    JobComponent,
+    SearchesComponent
   ],
   imports: [
     BrowserModule,
