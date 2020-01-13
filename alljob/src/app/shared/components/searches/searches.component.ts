@@ -12,4 +12,7 @@ export class SearchesComponent implements OnInit {
   ngOnInit() {
   }
 
+  e: number = Math.E
+  str = "hello world"
+  date: Date = new Date()
 }

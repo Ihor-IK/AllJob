@@ -1,9 +1,12 @@
 <td id="refineresultscol" data-tn-section="refineBy">
     <div id="refineresults">
         <h3>Web jobs in Montréal, QC</h3>
-        <span role="heading" aria-level="2" style="height: 0; overflow: hidden; position: absolute;">Filter results
-            by:</span>
+        <span role="heading" aria-level="2" style="height: 0; overflow: hidden; position: absolute;">
+            Filter results by:</span>
 
+            {{e | number}}
+            <p>{{str | slice:0:10}}</p>
+            <p>{{date | date}}</p>
 
         <div id="rb_Salary Estimate" class="rbSection rbOpen">
             <div class="rbHeader">
@@ -15,27 +18,32 @@
                     <li onmousedown="rbptk('rb', 'salest', '1');">
                         <a rel="nofollow" href="#" title="$40,000+ (1505)">
                             <span class="rbLabel">$40,000+</span>
-                            <span class="rbCount">(1505)</span></a>
+                            <span class="rbCount">(1505)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'salest', '2');">
                         <a rel="nofollow" href="#" title="$60,000+ (1024)">
                             <span class="rbLabel">$60,000+</span>
-                            <span class="rbCount">(1024)</span></a>
+                            <span class="rbCount">(1024)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'salest', '3');">
                         <a rel="nofollow" href="#" title="$80,000+ (493)">
                             <span class="rbLabel">$80,000+</span>
-                            <span class="rbCount">(493)</span></a>
+                            <span class="rbCount">(493)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'salest', '4');">
                         <a rel="nofollow" href="#" title="$100,000+ (123)">
                             <span class="rbLabel">$100,000+</span>
-                            <span class="rbCount">(123)</span></a>
+                            <span class="rbCount">(123)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'salest', '5');">
                         <a rel="nofollow" href="#" title="$120,000+ (24)">
                             <span class="rbLabel">$120,000+</span>
-                            <span class="rbCount">(24)</span></a>
+                            <span class="rbCount">(24)</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -50,12 +58,8 @@
                     <li onmousedown="rbptk('rb', 'jobtype', '1');">
                         <a rel="nofollow" href="#" title="Full-time">
                             <span class="rbLabel">Full-time</span>
-                            <span class="rbCount">(..)</span></a>
-                    </li>
-                    <li onmousedown="rbptk('rb', 'jobtype', '2');">
-                        <a rel="nofollow" href="#" title="Permanent (690)">
-                            <span class="rbLabel">Permanent</span>
-                            <span class="rbCount">(690)</span></a>
+                            <span class="rbCount">(..)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'jobtype', '3');">
                         <a rel="nofollow" href="#" title="Part-time (241)">
@@ -65,7 +69,8 @@
                     <li onmousedown="rbptk('rb', 'jobtype', '4');">
                         <a rel="nofollow" href="#" title="Temporary (176)">
                             <span class="rbLabel">Temporary</span>
-                            <span class="rbCount">(176)</span></a>
+                            <span class="rbCount">(176)</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -81,18 +86,21 @@
                     <li onmousedown="rbptk('rb', 'loc', '1');">
                         <a rel="nofollow" href="#">
                             <span class="rbLabel">Montréal, QC</span>
-                            <span class="rbCount">(3051)</span></a>
+                            <span class="rbCount">(3051)</span>
+                        </a>
                     </li>
                     <li onmousedown="rbptk('rb', 'loc', '2');">
                         <a rel="nofollow" href="#">
                             <span class="rbLabel">Laval, QC</span>
-                            <span class="rbCount">(224)</span></a>
+                            <span class="rbCount">(224)</span>
+                        </a>
                     </li>
 
-
                     <li class="moreLi" onmousedown="rbptk('rb','loc','16');">
-                        <a href="#"><span class="rbLabel">Web jobs</span>
-                            <span class="rbCount">nationwide</span></a></li>
+                        <a href="#"><span class="rbLabel">.......</span>
+                            <span class="rbCount"></span>
+                        </a>
+                    </li>
                 </ul>
 
             </div>

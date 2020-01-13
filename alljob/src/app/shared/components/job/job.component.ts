@@ -8,6 +8,9 @@ import { Job } from '../../interfaces';
 })
 export class JobComponent implements OnInit {
 
+  jobs: Job[] = []
+  search = ''
+
   @Input() job: Job
   constructor() { }
 

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {JobsService} from '../shared/jobs.service';
-import {Observable} from 'rxjs';
-import {Job} from '../shared/interfaces';
+import { Component, OnInit } from '@angular/core';
+import { JobsService } from '../shared/jobs.service';
+import { Observable } from 'rxjs';
+import { Job } from '../shared/interfaces';
 
 @Component({
   selector: 'app-home-page',
@@ -9,6 +9,18 @@ import {Job} from '../shared/interfaces';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+
+  jobs: Job[] = []
+  search = ''
+
+  onSearch(searchBy : any){
+    this.search = searchBy;
+  }
+  order = undefined;
+
+onOrderBy(orderBy : any){
+      this.order = orderBy;
+}
 
   jobs$: Observable<Job[]>
 

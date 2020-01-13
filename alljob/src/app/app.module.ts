@@ -15,6 +15,8 @@ import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { environment } from '../environments/environment';
 import { SearchesComponent } from './shared/components/searches/searches.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './shared/filter.pipe';
 
 registerLocaleData(enLocale, 'en')
 
@@ -31,10 +33,12 @@ const INTERCEPTOR_PROVIDER: Provider = {
     HomePageComponent,
     JobPageComponent,
     JobComponent,
-    SearchesComponent
+    SearchesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
