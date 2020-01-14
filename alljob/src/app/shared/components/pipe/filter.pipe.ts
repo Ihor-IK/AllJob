@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Job } from './interfaces';
+import { Job } from '../../interfaces';
 
 @Pipe({
   name: 'filter'

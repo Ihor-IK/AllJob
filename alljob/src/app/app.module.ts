@@ -16,7 +16,14 @@ import { AuthInterceptor } from './shared/auth.interceptor';
 import { environment } from '../environments/environment';
 import { SearchesComponent } from './shared/components/searches/searches.component';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './shared/filter.pipe';
+import { FilterPipe } from './shared/components/pipe/filter.pipe';
+import { FilterTypePipe } from './shared/components/pipe/filter-type.pipe';
+import { FilterSalaryPipe } from './shared/components/pipe/filter-salary.pipe';
+import { FilterCityPipe } from './shared/components/pipe/filter-city.pipe';
+import { FilterAuthorPipe } from './shared/components/pipe/filter-author.pipe';
+import { FilterRequiredSkillsPipe } from './shared/components/pipe/filter-required-skills.pipe';
+
+
 
 registerLocaleData(enLocale, 'en')
 
@@ -34,7 +41,13 @@ const INTERCEPTOR_PROVIDER: Provider = {
     JobPageComponent,
     JobComponent,
     SearchesComponent,
-    FilterPipe
+    FilterPipe,
+    FilterTypePipe,
+    FilterSalaryPipe,
+    FilterCityPipe,
+    FilterAuthorPipe,
+    FilterRequiredSkillsPipe
+
   ],
   imports: [
     BrowserModule,

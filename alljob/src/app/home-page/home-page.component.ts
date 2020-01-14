@@ -12,15 +12,35 @@ export class HomePageComponent implements OnInit {
 
   jobs: Job[] = []
   search = ''
+  searchType = ''
+  searchSalary = ''
+  searchCity = ''
+  searchAuthor = ''
+  searchRequiredSkills = ''
 
   onSearch(searchBy : any){
     this.search = searchBy;
   }
-  order = undefined;
+  onSearchType(searchBy : any){
+    this.searchType = searchBy;
+  }
+  onSearchSalary(searchBy : any){
+    this.searchSalary = searchBy;
+  }
+  onSearchCity(searchBy : any){
+    this.searchCity = searchBy;
+  }
+  onSearchAuthor(searchBy : any){
+    this.searchAuthor = searchBy;
+  }
+  onSearchRequiredSkills(searchBy : any){
+    this.searchRequiredSkills = searchBy;
+  }
+//   order = undefined;
 
-onOrderBy(orderBy : any){
-      this.order = orderBy;
-}
+// onOrderBy(orderBy : any){
+//       this.order = orderBy;
+// }
 
   jobs$: Observable<Job[]>
 

@@ -21,9 +21,9 @@
             <span role="heading" aria-level="2" style="height: 0; overflow: hidden; position: absolute;">
               Filter results by:</span>
 
-            {{e | number}}
+            <!-- {{e | number}}
             <p>{{str | slice:0:10}}</p>
-            <p>{{date | date}}</p>
+            <p>{{date | date}}</p> -->
 
             <div id="rb_Salary Estimate" class="rbSection rbOpen">
               <div class="rbHeader">
@@ -33,36 +33,41 @@
               <div id="SALARY_rbo" class="rbsrbo">
                 <ul class="rbList">
                   <li>
-                    <input type="text" [(ngModel)]="search">
+                    <input type="text" [(ngModel)]="searchSalary">
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="$40,000+ (1505)">
+                    <a rel="nofollow" href="#" title="$40,000+ (1505)" (click)="onSearchSalary('35')">
                       <span class="rbLabel">$40,000+</span>
                       <span class="rbCount">(1505)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="$60,000+ (1024)">
+                    <a rel="nofollow" href="#" title="$60,000+ (1024)" (click)="onSearchSalary('45')">
                       <span class="rbLabel">$60,000+</span>
                       <span class="rbCount">(1024)</span>
                     </a>
                   </li>
                   <li onmousedown="rbptk('rb', 'salest', '3');">
-                    <a rel="nofollow" href="#" title="$80,000+ (493)">
+                    <a rel="nofollow" href="#" title="$80,000+ (493)" (click)="onSearchSalary('55')">
                       <span class="rbLabel">$80,000+</span>
                       <span class="rbCount">(493)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="$100,000+ (123)">
+                    <a rel="nofollow" href="#" title="$100,000+ (123)" (click)="onSearchSalary('65')">
                       <span class="rbLabel">$100,000+</span>
                       <span class="rbCount">(123)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="$120,000+ (24)">
+                    <a rel="nofollow" href="#" title="$120,000+ (24)" (click)="onSearchSalary('75')">
                       <span class="rbLabel">$120,000+</span>
                       <span class="rbCount">(24)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="onSearchSalary('')">
+                      <span class="rbLabel">All</span>                 
                     </a>
                   </li>
                 </ul>
@@ -76,23 +81,28 @@
               <div id="JOB_TYPE_rbo" class="rbsrbo">
                 <ul class="rbList">
                   <li>
-                    <input type="text" [(ngModel)]="search">
+                    <input type="text" [(ngModel)]="searchType">
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="Full-time">
+                    <a rel="nofollow" href="#" title="Full-time" (click)="onSearchType('Full-time')">
                       <span class="rbLabel">Full-time</span>
                       <span class="rbCount">(..)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="Part-time (241)">
+                    <a rel="nofollow" href="#" title="Part-time (241)" (click)="onSearchType('Part-time')">
                       <span class="rbLabel">Part-time</span>
                       <span class="rbCount">(241)</span></a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="Temporary (176)">
+                    <a rel="nofollow" href="#" title="Temporary (176)" (click)="onSearchType('Temporary')">
                       <span class="rbLabel">Temporary</span>
                       <span class="rbCount">(176)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="onSearchType('')">
+                      <span class="rbLabel">All</span>                 
                     </a>
                   </li>
                 </ul>
@@ -107,24 +117,24 @@
               <div id="LOCATION_rbo" class="rbsrbo">
                 <ul class="rbList">
                   <li>
-                    <input type="text" [(ngModel)]="search">
+                    <input type="text" [(ngModel)]="searchCity">
                   </li>
                   <li>
-                    <a rel="nofollow" href="#">
+                    <a rel="nofollow" href="#" (click)="onSearchCity('Montréal')">
                       <span class="rbLabel">Montréal, QC</span>
                       <span class="rbCount">(3051)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#">
+                    <a rel="nofollow" href="#" (click)="onSearchCity('Laval')">
                       <span class="rbLabel">Laval, QC</span>
                       <span class="rbCount">(224)</span>
                     </a>
                   </li>
 
-                  <li class="moreLi">
-                    <a href="#"><span class="rbLabel">.......</span>
-                      <span class="rbCount"></span>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="onSearchCity('')">
+                      <span class="rbLabel">All</span>                 
                     </a>
                   </li>
                 </ul>
@@ -139,17 +149,22 @@
               <div id="COMPANY_rbo" class="rbsrbo">
                 <ul class="rbList">
                   <li>
-                    <input type="text" [(ngModel)]="search">
+                    <input type="text" [(ngModel)]="searchAuthor">
                   </li>
                   <li>
-                    <a rel="nofollow" href="#">
+                    <a rel="nofollow" href="#" (click)="onSearchAuthor('CIUSSS')">
                       <span class="rbLabel">CIUSSS de l’Est-de-l’Île-de-Montréal</span>
                       <span class="rbCount">(104)</span></a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#">
+                    <a rel="nofollow" href="#" (click)="onSearchAuthor('Pharmaprix')">
                       <span class="rbLabel">Pharmaprix</span>
                       <span class="rbCount">(79)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="onSearchAuthor('')">
+                      <span class="rbLabel">All</span>                 
+                    </a>
                   </li>
                 </ul>
 
@@ -176,28 +191,38 @@
                       <span class="rbLabel">web </span>
                       <span class="rbCount">(19)</span></a>
                   </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="onSearch('')">
+                      <span class="rbLabel">All </span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
             <div id="rb_Language" class="rbSection rbOpen">
               <div class="rbHeader">
-                <span role="heading" aria-level="3" class="ws_bold">Language</span>
+                <span role="heading" aria-level="3" class="ws_bold">RequiredSkills</span>
               </div>
               <div id="LANGUAGE_rbo" class="rbsrbo">
                 <ul class="rbList">
                   <li>
-                    <input type="text" [(ngModel)]="search">
+                    <input type="text" [(ngModel)]="searchRequiredSkills">
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="français (2684)">
-                      <span class="rbLabel">français</span>
+                    <a rel="nofollow" href="#" title="français (2684)" (click)="onSearchRequiredSkills('Français')">
+                      <span class="rbLabel">Français</span>
                       <span class="rbCount">(2684)</span>
                     </a>
                   </li>
                   <li>
-                    <a rel="nofollow" href="#" title="English (1433)">
+                    <a rel="nofollow" href="#" title="English (1433)" (click)="onSearchRequiredSkills('English')">
                       <span class="rbLabel">English</span>
                       <span class="rbCount">(1433)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="onSearchRequiredSkills('')">
+                      <span class="rbLabel">All</span>                 
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -211,7 +236,14 @@
     <div class="col-lg-8">
       <div class="card-body text-left">
         <div *ngIf="jobs$ | async as jobs; else loading" class="jobs">
-          <app-job *ngFor="let job of jobs | filter:search" [job]="job"></app-job>
+          <app-job *ngFor="let job of jobs 
+          | filter:search
+          | filterType:searchType
+          | filterSalary:searchSalary
+          | filterCity:searchCity
+          | filterAuthor:searchAuthor
+          | filterRequiredSkills:searchRequiredSkills"
+          [job]="job"></app-job>
         </div>
 
       </div>
