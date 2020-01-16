@@ -18,13 +18,9 @@
         <td id="refineresultscol" data-tn-section="refineBy">
           <div id="refineresults">
             <h3>Web jobs in Montréal, QC</h3>
-            <span role="heading" aria-level="2" style="height: 0; overflow: hidden; position: absolute;">
-              Filter results by:</span>
-
-            <!-- {{e | number}}
-            <p>{{str | slice:0:10}}</p>
-            <p>{{date | date}}</p> -->
-
+            <a rel="nofollow" href="#" title="All filter delete:" (click)="onFilterDelete('')">
+            <span>All filter delete:</span>
+            </a>         
             <div id="rb_Salary Estimate" class="rbSection rbOpen">
               <div class="rbHeader">
                 <span role="heading" aria-level="3" class="ws_bold">
@@ -67,7 +63,7 @@
                   </li>
                   <li>
                     <a rel="nofollow" href="#" title="All" (click)="onSearchSalary('')">
-                      <span class="rbLabel">All</span>                 
+                      <span class="rbLabel">All</span>
                     </a>
                   </li>
                 </ul>
@@ -102,7 +98,7 @@
                   </li>
                   <li>
                     <a rel="nofollow" href="#" title="All" (click)="onSearchType('')">
-                      <span class="rbLabel">All</span>                 
+                      <span class="rbLabel">All</span>
                     </a>
                   </li>
                 </ul>
@@ -134,7 +130,7 @@
 
                   <li>
                     <a rel="nofollow" href="#" title="All" (click)="onSearchCity('')">
-                      <span class="rbLabel">All</span>                 
+                      <span class="rbLabel">All</span>
                     </a>
                   </li>
                 </ul>
@@ -163,7 +159,7 @@
                   </li>
                   <li>
                     <a rel="nofollow" href="#" title="All" (click)="onSearchAuthor('')">
-                      <span class="rbLabel">All</span>                 
+                      <span class="rbLabel">All</span>
                     </a>
                   </li>
                 </ul>
@@ -182,7 +178,7 @@
                   </li>
                   <li>
                     <a rel="nofollow" href="#" (click)="onSearch('Merchandiser')">
-                      <span class="rbLabel" >Merchandiser</span>
+                      <span class="rbLabel">Merchandiser</span>
                       <span class="rbCount">(41)</span>
                     </a>
                   </li>
@@ -221,7 +217,7 @@
                   </li>
                   <li>
                     <a rel="nofollow" href="#" title="All" (click)="onSearchRequiredSkills('')">
-                      <span class="rbLabel">All</span>                 
+                      <span class="rbLabel">All</span>
                     </a>
                   </li>
                 </ul>
@@ -242,8 +238,8 @@
           | filterSalary:searchSalary
           | filterCity:searchCity
           | filterAuthor:searchAuthor
-          | filterRequiredSkills:searchRequiredSkills"
-          [job]="job"></app-job>
+          | filterRequiredSkills:searchRequiredSkills" [job]="job">
+          </app-job>
         </div>
 
       </div>

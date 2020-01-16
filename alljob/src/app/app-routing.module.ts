@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { JobPageComponent } from './job-page/job-page.component';
+import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
     path: '', component: MainLayoutComponent, children:[
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent},
-      {path: 'job/:id', component: JobPageComponent}
+      {path: 'job/:id', component: JobPageComponent},
+      {path: 'cv', component: CvHomePageComponent},
     ]
   },
   {

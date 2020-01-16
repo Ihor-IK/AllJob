@@ -17,6 +17,7 @@ export class HomePageComponent implements OnInit {
   searchCity = ''
   searchAuthor = ''
   searchRequiredSkills = ''
+  FilterDelete = ''
 
   onSearch(searchBy : any){
     this.search = searchBy;
@@ -36,11 +37,15 @@ export class HomePageComponent implements OnInit {
   onSearchRequiredSkills(searchBy : any){
     this.searchRequiredSkills = searchBy;
   }
-//   order = undefined;
 
-// onOrderBy(orderBy : any){
-//       this.order = orderBy;
-// }
+  onFilterDelete(searchBy : any){
+    this.searchRequiredSkills = searchBy;
+    this.searchAuthor = searchBy;
+    this.searchCity = searchBy;
+    this.searchSalary = searchBy;
+    this.searchType = searchBy;
+    this.search = searchBy;
+  }
 
   jobs$: Observable<Job[]>
 

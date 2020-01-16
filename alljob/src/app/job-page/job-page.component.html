@@ -1,47 +1,47 @@
-  <div *ngIf="job$ | async as job; else loading">
-    <div class="job">
-      <div class="header">
-        <h1>{{ job.title }}</h1>
+<div *ngIf="job$ | async as job; else loading">
+  <div class="job">
+    <div class="header">
+      <h1>{{ job.title }}</h1>
 
-        <small>
-          <span class="FontSm">Creation </span>
-          {{ job.date | date:'dd.MM.yyyy' }} 
-        </small>
-        <small>
-          <span class="FontSm">End </span>
-          {{ job.dateEnd | date:'dd.MM.yyyy' }} 
-        </small>
-  
-        <button routerLink="/" class="btn btn-link">Home</button>
-      </div>
-  
-      <div class="info">
-        <strong>{{ job.author }}</strong>
-      </div>
-  
-      <div>
-        <small> 
-          <span class="FontSm">Company </span>
-            {{ job.author }}
-          <span class="FontSm">  City  {{ job.city }}</span>
-        </small>
-        <h6 class="FontSm">  Company description  {{ job.companyDescription }}</h6>
-      </div>
-     
-      <div>
-        <small>Salary /hr {{job.salary}}  Type {{ job.type }}  </small>
-      </div>
-      
-      <div>
-        <small>Required skills: {{ job.requiredSkills }}  </small>
-      </div>
+      <small>
+        <span class="FontSm">Creation </span>
+        {{ job.date | date:'dd.MM.yyyy' }}
+      </small>
+      <small>
+        <span class="FontSm">End </span>
+        {{ job.dateEnd | date:'dd.MM.yyyy' }}
+      </small>
 
-      <div>
-        <quill-view-html [content]="job.text"></quill-view-html>
-      </div>
+      <button routerLink="/" class="btn btn-link">Home</button>
+    </div>
+
+    <div class="info">
+      <strong>{{ job.author }}</strong>
+    </div>
+
+    <div>
+      <small>
+        <span class="FontSm">Company </span>
+        {{ job.author }}
+        <span class="FontSm"> City {{ job.city }}</span>
+      </small>
+      <h6 class="FontSm"> Company description {{ job.companyDescription }}</h6>
+    </div>
+
+    <div>
+      <small>Salary /hr {{job.salary}} Type {{ job.type }} </small>
+    </div>
+
+    <div>
+      <small>Required skills: {{ job.requiredSkills }} </small>
+    </div>
+
+    <div>
+      <quill-view-html [content]="job.text"></quill-view-html>
     </div>
   </div>
-  
-  <ng-template #loading>
-    <p class="text-center">loading job...</p>
-  </ng-template>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">loading job...</p>
+</ng-template>

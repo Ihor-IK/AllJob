@@ -22,6 +22,20 @@ export interface User {
     requiredSkills: string
   }
 
+  export interface Cv {
+    id?: string
+    title: string
+    text: string
+    author: string
+    date: Date
+    dateEnd?: Date
+    city: string
+    Description: string
+    salary: string
+    type: string
+    Skills: string
+  }
+
   export interface FbCreateResponse {
     name: string
   }

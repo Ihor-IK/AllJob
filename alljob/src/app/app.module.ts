@@ -14,7 +14,6 @@ import { JobComponent } from './shared/components/job/job.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { environment } from '../environments/environment';
-import { SearchesComponent } from './shared/components/searches/searches.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/components/pipe/filter.pipe';
 import { FilterTypePipe } from './shared/components/pipe/filter-type.pipe';
@@ -22,6 +21,8 @@ import { FilterSalaryPipe } from './shared/components/pipe/filter-salary.pipe';
 import { FilterCityPipe } from './shared/components/pipe/filter-city.pipe';
 import { FilterAuthorPipe } from './shared/components/pipe/filter-author.pipe';
 import { FilterRequiredSkillsPipe } from './shared/components/pipe/filter-required-skills.pipe';
+import { CvComponent } from './shared/components/cv/cv.component';
+import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 
 
 
@@ -40,13 +41,14 @@ const INTERCEPTOR_PROVIDER: Provider = {
     HomePageComponent,
     JobPageComponent,
     JobComponent,
-    SearchesComponent,
     FilterPipe,
     FilterTypePipe,
     FilterSalaryPipe,
     FilterCityPipe,
     FilterAuthorPipe,
-    FilterRequiredSkillsPipe
+    FilterRequiredSkillsPipe,
+    CvComponent,
+    CvHomePageComponent
 
   ],
   imports: [
