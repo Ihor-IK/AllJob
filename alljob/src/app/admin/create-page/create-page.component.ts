@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../../shared/interfaces';
-import { JobsService } from 'src/app/shared/jobs.service';
+import { JobsService } from '../../shared/jobs.service';
 import { AlertService } from '../shared/services/alert.service';
 
 @Component({

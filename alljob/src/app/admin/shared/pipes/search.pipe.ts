@@ -1,5 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import { Job } from 'src/app/shared/interfaces';
+import { Job } from '../../../shared/interfaces';
+
 
 
 @Pipe({

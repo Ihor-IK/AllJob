@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Create a new cv</h1>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+        <label for="title">Title of cv:</label>
+        <input id="title" type="text" formControlName="title">
+        <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+            <small *ngIf="form.get('title').errors.required">
+                Enter job title
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label>Content job:</label>
+        <quill-editor formControlName="text"></quill-editor>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
+        <label for="author">Company job:</label>
+        <input id="author" type="text" formControlName="author">
+        <div *ngIf="form.get('author').touched && form.get('author').invalid" class="validation">
+            <small *ngIf="form.get('author').errors.required">
+                Enter company job
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('city').touched && form.get('city').invalid}">
+        <label for="city">Company city:</label>
+        <input id="city" type="text" formControlName="city">
+        <div *ngIf="form.get('city').touched && form.get('city').invalid" class="validation">
+            <small *ngIf="form.get('city').errors.required">
+                Enter company city
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('Description').touched && form.get('Description').invalid}">
+        <label for="Description">Company Description:</label>
+        <input id="Description" type="text" formControlName="Description">
+        <div *ngIf="form.get('Description').touched && form.get('Description').invalid" class="validation">
+            <small *ngIf="form.get('Description').errors.required">
+                Enter Company Description
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('salary').touched && form.get('salary').invalid}">
+        <label for="salary">Company salary:</label>
+        <input id="salary" type="text" formControlName="salary">
+        <div *ngIf="form.get('salary').touched && form.get('salary').invalid" class="validation">
+            <small *ngIf="form.get('salary').errors.required">
+                Enter Company salary
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('type').touched && form.get('type').invalid}">
+        <label for="type">Type salary:</label>
+        <input id="type" type="text" formControlName="type">
+        <div *ngIf="form.get('type').touched && form.get('type').invalid" class="validation">
+            <small *ngIf="form.get('type').errors.required">
+                Enter Type salary
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('Skills').touched && form.get('Skills').invalid}">
+        <label for="Skills">Required Skills:</label>
+        <input id="Skills" type="text" formControlName="Skills">
+        <div *ngIf="form.get('Skills').touched && form.get('Skills').invalid" class="validation">
+            <small *ngIf="form.get('Skills').errors.required">
+                Enter Required Skills
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('dateEnd').touched && form.get('dateEnd').invalid}">
+        <label for="dateEnd">dateEnd:</label>
+        <input id="dateEnd" type="date" formControlName="dateEnd">
+        <div *ngIf="form.get('dateEnd').touched && form.get('dateEnd').invalid" class="validation">
+            <small *ngIf="form.get('dateEnd').errors.required">
+                Enter dateEnd
+            </small>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-block btn-dark" [disabled]="form.invalid">Create a job</button>
+</form>

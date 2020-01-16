@@ -1,0 +1,47 @@
+<div *ngIf="cv$ | async as cv; else loading">
+    <div class="cv">
+        <div class="header">
+            <h1>{{ cv.title }}</h1>
+
+            <small>
+                <span class="FontSm">Creation </span>
+                {{ cv.date | date:'dd.MM.yyyy' }}
+            </small>
+            <small>
+                <span class="FontSm">End </span>
+                {{ cv.dateEnd | date:'dd.MM.yyyy' }}
+            </small>
+
+            <button routerLink="/" class="btn btn-link">Home</button>
+        </div>
+
+        <div class="info">
+            <strong>{{ cv.author }}</strong>
+        </div>
+
+        <div>
+            <small>
+                <span class="FontSm">Person </span>
+                {{ cv.author }}
+                <span class="FontSm"> City {{ cv.city }}</span>
+            </small>
+            <h6 class="FontSm"> Description {{ cv.Description }}</h6>
+        </div>
+
+        <div>
+            <small>Salary /hr {{cv.salary}} Type {{ cv.type }} </small>
+        </div>
+
+        <div>
+            <small>Skills: {{ cv.Skills }} </small>
+        </div>
+
+        <div>
+            <quill-view-html [content]="cv.text"></quill-view-html>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">loading cv...</p>
+</ng-template>

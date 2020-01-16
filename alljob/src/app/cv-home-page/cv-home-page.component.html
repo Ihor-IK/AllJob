@@ -1,35 +1,45 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  </head>
-  
-  <div class="container">
-  
-    <div class="card-deck">
-      <div class="col-lg-2">
-        <div class="card-body text-left">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
 
-  
-  CV
-  
-        </div>
+<div class="container">
+  <ul>
+    <li routerLinkActive="active"><a [routerLink]="['/admin-cv', 'cv-login']">Login</a></li>
+  </ul>
+  <div class="card-deck">
+    <div class="col-lg-2">
+      <div class="card-body text-left">
+
+
+
+
       </div>
-      <div class="col-lg-8">
-        <div class="card-body text-left">
-          <div >
-            <app-cv >
-            </app-cv>
-          </div>
-  
+    </div>
+    <div class="col-lg-8">
+      <div class="card-body text-left">
+        <div>
+          <app-cv>
+          </app-cv>
         </div>
+
       </div>
     </div>
   </div>
-  
-  <ng-template #loading>
-    <p class="text-center">loading jobs...</p>
-  </ng-template>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">loading cv...</p>
+</ng-template>
+
+<div class="container">
+  <div class="card">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

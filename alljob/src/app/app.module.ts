@@ -23,6 +23,10 @@ import { FilterAuthorPipe } from './shared/components/pipe/filter-author.pipe';
 import { FilterRequiredSkillsPipe } from './shared/components/pipe/filter-required-skills.pipe';
 import { CvComponent } from './shared/components/cv/cv.component';
 import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
+import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
+import { CvPageComponent } from './cv-page/cv-page.component';
+
+
 
 
 
@@ -48,7 +52,10 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FilterAuthorPipe,
     FilterRequiredSkillsPipe,
     CvComponent,
-    CvHomePageComponent
+    CvHomePageComponent,
+    PortfolioPageComponent,
+    CvPageComponent
+    
 
   ],
   imports: [
