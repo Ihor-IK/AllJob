@@ -6,19 +6,19 @@ import {CvAuthService} from './cv-auth.service';
 @Injectable()
 export class CvAuthGuard implements CanActivate {
   constructor(
-    private auth: CvAuthService,
-    private router: Router
+    private cv_auth: CvAuthService,
+    private cv_router: Router
   ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.auth.isAuthenticated()) {
+    if (this.cv_auth.isAuthenticated()) {
       return true
     } else {
-      this.auth.logout()
-      this.router.navigate(['/admin-cv', 'login'], {
+      this.cv_auth.logout()
+      this.cv_router.navigate(['/admin-cv', 'cv-login'], {
         queryParams: {
           loginAgain: true
         }

@@ -11,8 +11,8 @@ import { CvAuthService } from '../../services/cv-auth.service';
 export class AdminCvLayoutComponent implements OnInit {
 
   constructor(
-    private router: Router,
-    public auth: CvAuthService
+    private cv_router: Router,
+    public cv_auth: CvAuthService
     ) {
   }
 
@@ -21,7 +21,7 @@ export class AdminCvLayoutComponent implements OnInit {
 
   logout(event: Event) {
     event.preventDefault();
-    this.auth.logout();
-    this.router.navigate(['/admin-cv', 'cv-login']);
+    this.cv_auth.logout();
+    this.cv_router.navigate(['/admin-cv', 'cv-login']);
   }
 }

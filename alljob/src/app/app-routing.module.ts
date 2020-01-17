@@ -22,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'admin-cv', loadChildren: './admin-cv/admin-cv.module#AdminModule'
   }
+
 ];
 
 @NgModule({

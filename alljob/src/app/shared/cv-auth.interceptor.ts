@@ -3,37 +3,37 @@ import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest}
 import {Observable, throwError} from 'rxjs';
 
 import {Router} from '@angular/router';
-import {catchError} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import { CvAuthService } from '../admin-cv/shared/services/cv-auth.service';
 
 @Injectable()
 export class CvAuthInterceptor implements HttpInterceptor {
   constructor(
-    private auth: CvAuthService,
-    private router: Router
+    private cv_auth: CvAuthService,
+    private cv_router: Router
   ) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.auth.isAuthenticated()) {
+    if (this.cv_auth.isAuthenticated()) {
       req = req.clone({
         setParams: {
-          auth: this.auth.token
+          cv_auth: this.cv_auth.token
         }
       })
     }
     return next.handle(req)
       .pipe(
-        // tap(() => {
-        //   console.log('Intercept')
-        // }),
+        tap(() => {
+          console.log('Intercept')
+        }),
         catchError((error: HttpErrorResponse) => {
-          console.log('[Interceptor Error]: ', error)
+          console.log('[CvInterceptor Error]: ', error)
           if (error.status === 401) {
-            this.auth.logout()
-            this.router.navigate(['/admin-cv', 'cv-login'], {
+            this.cv_auth.logout()
+            this.cv_router.navigate(['/admin-cv', 'cv-login'], {
               queryParams: {
-                authFailed: true
+                cv_authFailed: true
               }
             })
           }

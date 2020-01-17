@@ -1,1 +1,48 @@
-<p>cv-dashboard-page works!</p>
+<div *ngIf="cvs.length; else loading">
+    <div class="form-control">
+        <input type="text" placeholder="Find a cv..." [(ngModel)]="searchStr">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Act</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>City</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Type</th>
+                <th>Skills</th>
+                <th>Date End</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cv of cvs | searchCvs:searchStr; let idx = index">
+                <td>{{ idx + 1 }}</td>
+                <td>
+                    <button class="btn btn-link open" [routerLink]="['/admin-cv', 'cv', cv.id, 'cv-edit']">
+                        Open
+                    </button>
+                    <a (click)="remove(cv.id)">Delete</a>
+                </td>
+                <td>{{ cv.author }}</td>
+                <td>{{ cv.title }}</td>
+                <td>{{ cv.date | date:'medium' :null:'En'}}</td>
+                <td>{{ cv.city }}</td>
+                <td>{{ cv.Description }}</td>
+                <td>{{ cv.salary }}</td>
+                <td>{{ cv.type }}</td>
+                <td>{{ cv.Skills }}</td>
+                <td>{{ cv.dateEnd }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<ng-template #loading>
+    <p class="text-center">Loading..dash</p>
+</ng-template>

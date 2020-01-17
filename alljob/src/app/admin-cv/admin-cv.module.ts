@@ -14,6 +14,7 @@ import { CvCreatePageComponent } from './cv-create-page/cv-create-page.component
 import { CvDashboardPageComponent } from './cv-dashboard-page/cv-dashboard-page.component';
 import { CvEditPageComponent } from './cv-edit-page/cv-edit-page.component';
 import { CvLoginPageComponent } from './cv-login-page/cv-login-page.component';
+import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CvLoginPageComponent } from './cv-login-page/cv-login-page.component';
       CvCreatePageComponent,
       CvDashboardPageComponent,
       CvEditPageComponent,
-      CvLoginPageComponent
+      CvLoginPageComponent,
+      CvSearchPipe
     ],
     imports: [
       CommonModule,

@@ -1,16 +1,19 @@
 <app-alert-cv>
 </app-alert-cv>
-<nav class="navbar bg-primary">
+<nav class="navbar bg-success">
     <h1>
         <a routerLink="/">AllJob</a>
     </h1>
 
-    <ul *ngIf="auth.isAuthenticated()">
-        <li routerLinkActive="active">
-            <a [routerLink]="['/admin-cv', 'dashboard']">Home</a>
+    <ul *ngIf="cv_auth.isAuthenticated()">
+        <li >
+            <a >CV</a>
         </li>
         <li routerLinkActive="active">
-            <a [routerLink]="['/admin-cv', 'create']">Create</a>
+            <a [routerLink]="['/admin-cv', 'cv-dashboard']">Home</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin-cv', 'cv-create']">Create</a>
         </li>
         <li>
             <a href="#" (click)="logout($event)">Logout</a>

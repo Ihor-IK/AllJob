@@ -17,17 +17,17 @@ export class CvLoginPageComponent implements OnInit {
   message: string
 
   constructor(
-    public auth: CvAuthService,
-    private router: Router,
-    private route: ActivatedRoute
+    public cv_auth: CvAuthService,
+    private cv_router: Router,
+    private cv_route: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params: Params) => {
+    this.cv_route.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
         this.message = 'Please enter data'
-      } else if (params['authFailed']) {
+      } else if (params['cv_authFailed']) {
         this.message = 'The session has expired. Re-enter data'
       }
     })
@@ -56,9 +56,9 @@ export class CvLoginPageComponent implements OnInit {
       password: this.form.value.password
     }
 
-    this.auth.login(user).subscribe(() => {
+    this.cv_auth.login(user).subscribe(() => {
       this.form.reset()
-      this.router.navigate(['/admin-cv', 'cv-dashboard'])
+      this.cv_router.navigate(['/admin-cv', 'cv-dashboard'])
       this.submitted = false
     }, () => {
       this.submitted = false

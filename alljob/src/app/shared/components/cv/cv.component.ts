@@ -8,7 +8,7 @@ import { Cv } from '../../interfaces';
 })
 export class CvComponent implements OnInit {
 
-cvs: Cv[] = []
+  cvs: Cv[] = []
   search = ''
 
   @Input() cv: Cv
@@ -16,7 +16,7 @@ cvs: Cv[] = []
 
   ngOnInit() {
   }
- 
+
 
 
 }

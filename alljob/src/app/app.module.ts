@@ -25,6 +25,7 @@ import { CvComponent } from './shared/components/cv/cv.component';
 import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
+import { CvAuthInterceptor } from './shared/cv-auth.interceptor';
 
 
 
@@ -37,6 +38,13 @@ const INTERCEPTOR_PROVIDER: Provider = {
   multi: true,
   useClass: AuthInterceptor
 }
+
+const CV_INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: CvAuthInterceptor
+}
+
 
 @NgModule({
   declarations: [
@@ -65,7 +73,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [INTERCEPTOR_PROVIDER],
+  providers: [AuthInterceptor,CvAuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

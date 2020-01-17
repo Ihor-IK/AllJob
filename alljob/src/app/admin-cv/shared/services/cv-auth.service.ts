@@ -26,7 +26,7 @@ export class CvAuthService {
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
       .pipe(
         tap(this.setToken),
-        catchError(this.handleError.bind(this))
+        catchError(this.cv_handleError.bind(this))
       )
   }
 
@@ -38,7 +38,7 @@ export class CvAuthService {
     return !!this.token
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private cv_handleError(error: HttpErrorResponse) {
     const {message} = error.error.error
 
     switch (message) {
