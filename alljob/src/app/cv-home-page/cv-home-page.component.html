@@ -8,27 +8,241 @@
 </head>
 
 <div class="container">
-  <ul>
-    <li routerLinkActive="active"><a [routerLink]="['login']">Login</a></li>
-  </ul>
   <div class="card-deck">
     <div class="col-lg-2">
       <div class="card-body text-left">
+        <!-- <input type="text" [(ngModel)]="search"> -->
+        <!-- <app-searches></app-searches> -->
+
+        <td id="refineresultscol" data-tn-section="refineBy">
+          <div id="refineresults">
+            <h3>Web jobs in Montréal, QC</h3>
+            <a rel="nofollow" href="#" title="All filter delete:" (click)="on_cv_FilterDelete('')">
+            <span>All filter delete:</span>
+            </a>         
+            <div id="rb_Salary Estimate" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">
+                  Salary Estimate</span>
+              </div>
+              <div id="SALARY_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_searchSalary">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="$40,000+ (1505)" (click)="on_cv_SearchSalary('35')">
+                      <span class="rbLabel">$40,000+</span>
+                      <span class="rbCount">(1505)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="$60,000+ (1024)" (click)="on_cv_SearchSalary('45')">
+                      <span class="rbLabel">$60,000+</span>
+                      <span class="rbCount">(1024)</span>
+                    </a>
+                  </li>
+                  <li onmousedown="rbptk('rb', 'salest', '3');">
+                    <a rel="nofollow" href="#" title="$80,000+ (493)" (click)="on_cv_SearchSalary('55')">
+                      <span class="rbLabel">$80,000+</span>
+                      <span class="rbCount">(493)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="$100,000+ (123)" (click)="on_cv_SearchSalary('65')">
+                      <span class="rbLabel">$100,000+</span>
+                      <span class="rbCount">(123)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="$120,000+ (24)" (click)="on_cv_SearchSalary('75')">
+                      <span class="rbLabel">$120,000+</span>
+                      <span class="rbCount">(24)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="on_cv_SearchSalary('')">
+                      <span class="rbLabel">All</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="rb_Job Type" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">
+                  Job Type</span>
+              </div>
+              <div id="JOB_TYPE_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_searchType">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="Full-time" (click)="on_cv_SearchType('Full-time')">
+                      <span class="rbLabel">Full-time</span>
+                      <span class="rbCount">(..)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="Part-time (241)" (click)="on_cv_SearchType('Part-time')">
+                      <span class="rbLabel">Part-time</span>
+                      <span class="rbCount">(241)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="Temporary (176)" (click)="on_cv_SearchType('Temporary')">
+                      <span class="rbLabel">Temporary</span>
+                      <span class="rbCount">(176)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="on_cv_SearchType('')">
+                      <span class="rbLabel">All</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="rb_Location" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">
+                  Location</span>
+              </div>
+              <div id="LOCATION_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_searchCity">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_SearchCity('Montréal')">
+                      <span class="rbLabel">Montréal, QC</span>
+                      <span class="rbCount">(3051)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_SearchCity('Laval')">
+                      <span class="rbLabel">Laval, QC</span>
+                      <span class="rbCount">(224)</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="on_cv_SearchCity('')">
+                      <span class="rbLabel">All</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+            <div id="rb_Company" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">
+                  Company</span>
+              </div>
+              <div id="COMPANY_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_searchAuthor">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_SearchAuthor('CIUSSS')">
+                      <span class="rbLabel">CIUSSS de l’Est-de-l’Île-de-Montréal</span>
+                      <span class="rbCount">(104)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_SearchAuthor('Pharmaprix')">
+                      <span class="rbLabel">Pharmaprix</span>
+                      <span class="rbCount">(79)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="on_cv_SearchAuthor('')">
+                      <span class="rbLabel">All</span>
+                    </a>
+                  </li>
+                </ul>
 
 
+              </div>
+            </div>
+            <div id="rb_Title" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">Title</span>
+              </div>
+              <div id="TITLE_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_search">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_Search('Merchandiser')">
+                      <span class="rbLabel">Merchandiser</span>
+                      <span class="rbCount">(41)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_Search('web')">
+                      <span class="rbLabel">web </span>
+                      <span class="rbCount">(19)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" (click)="on_cv_Search('')">
+                      <span class="rbLabel">All </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="rb_Language" class="rbSection rbOpen">
+              <div class="rbHeader">
+                <span role="heading" aria-level="3" class="ws_bold">RequiredSkills</span>
+              </div>
+              <div id="LANGUAGE_rbo" class="rbsrbo">
+                <ul class="rbList">
+                  <li>
+                    <input type="text" [(ngModel)]="cv_searchSkills">
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="français (2684)" (click)="on_cv_SearchSkills('Français')">
+                      <span class="rbLabel">Français</span>
+                      <span class="rbCount">(2684)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="English (1433)" (click)="on_cv_SearchSkills('English')">
+                      <span class="rbLabel">English</span>
+                      <span class="rbCount">(1433)</span></a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="#" title="All" (click)="on_cv_SearchSkills('')">
+                      <span class="rbLabel">All</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </td>
 
 
       </div>
     </div>
     <div class="col-lg-8">
       <div class="card-body text-left">
-        <div>
-          <app-cv>
+        <div *ngIf="cvs$ | async as cvs; else loading" class="cvs">
+          <app-cv *ngFor="let cv of cvs 
+          | cv_filter:cv_search
+          | cv_filterType:cv_searchType
+          | cv_filterSalary:cv_searchSalary
+          | cv_filterCity:cv_searchCity
+          | cv_filterAuthor:cv_searchAuthor
+          | cv_filterSkills:cv_searchSkills" [cv]="cv">
           </app-cv>
         </div>
-
       </div>
     </div>
+
   </div>
 </div>
 

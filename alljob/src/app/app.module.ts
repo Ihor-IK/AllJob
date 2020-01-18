@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Provider } from '@angular/core';
-import {registerLocaleData} from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import enLocale from '@angular/common/locales/en';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -26,6 +26,12 @@ import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
 import { CvAuthInterceptor } from './shared/cv-auth.interceptor';
+import { CvFilterAuthorPipe } from './shared/components/pipe/cv_filter-author.pipe';
+import { CvFilterPipe } from './shared/components/pipe/cv_filter.pipe';
+import { CvFilterTypePipe } from './shared/components/pipe/cv_filter-type.pipe';
+import { CvFilterSalaryPipe } from './shared/components/pipe/cv_filter-salary.pipe';
+import { CvFilterCityPipe } from './shared/components/pipe/cv_filter-city.pipe';
+import { CvFilterSkillsPipe } from './shared/components/pipe/cv_filter-skills.pipe';
 
 
 
@@ -62,8 +68,14 @@ const CV_INTERCEPTOR_PROVIDER: Provider = {
     CvComponent,
     CvHomePageComponent,
     PortfolioPageComponent,
-    CvPageComponent
-    
+    CvPageComponent,
+    CvFilterPipe,
+    CvFilterTypePipe,
+    CvFilterSalaryPipe,
+    CvFilterCityPipe,
+    CvFilterAuthorPipe,
+    CvFilterSkillsPipe
+
 
   ],
   imports: [
@@ -73,7 +85,7 @@ const CV_INTERCEPTOR_PROVIDER: Provider = {
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthInterceptor,CvAuthInterceptor],
+  providers: [AuthInterceptor, CvAuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
