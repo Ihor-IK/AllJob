@@ -1,5 +1,6 @@
-<nav class="navbar main bg-dark">
-  <ul class="navbar justify-content-left">
+<body>
+<nav class="navbar fixed-top avbar-expand-md bg-dark navbar-dark">
+<ul class="navbar justify-content-left">
     <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a [routerLink]="['/']">Home</a>
       </li> -->
@@ -9,17 +10,29 @@
       </h1>
     </li>
     <li routerLinkActive="active"><a [routerLink]="['/portfolio']">About me</a></li>
-    <li routerLinkActive="active"><a routerLink="/cv">Employee CV / Login</a></li>
-    <li routerLinkActive="active"><a [routerLink]="['/admin', 'login']">Employers offer / Login</a></li>
+    <li routerLinkActive="active"><a routerLink="/cv">Employee CV</a></li>
     <li routerLinkActive="active"><a> Logout</a></li>
-    <li routerLinkActive="active"><a [routerLink]="['/admin-cv', 'cv-login']">Cv / Login</a></li>
+    <li class="nav-item" routerLinkActive="active">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin-cv', 'cv-login']">Cv / Login</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin', 'login']">Employers offer / Login</a>
+      </li>
+    </ul>
+      </div>
+    </li>
   </ul>
 </nav>
 
 <div class="container">
   <div class="card">
-
     <router-outlet></router-outlet>
-
   </div>
 </div>
+</body>
