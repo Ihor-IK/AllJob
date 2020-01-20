@@ -1,5 +1,5 @@
 <form class="card" [formGroup]="form" (ngSubmit)="submit()">
-    <h2>Log in to admin panel</h2>
+    <h2>Log in to CV create panel</h2>
 
     <div class="alert alert-danger" *ngIf="cv_auth.error$ | async as error">
         {{ error }}

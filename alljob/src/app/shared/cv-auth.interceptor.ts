@@ -28,7 +28,7 @@ export class CvAuthInterceptor implements HttpInterceptor {
           console.log('Intercept')
         }),
         catchError((error: HttpErrorResponse) => {
-          console.log('[CvInterceptor Error]: ', error)
+          console.log('[Interceptor Error]: ', error)
           if (error.status === 401) {
             this.cv_auth.logout()
             this.cv_router.navigate(['/admin-cv', 'cv-login'], {

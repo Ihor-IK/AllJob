@@ -10,7 +10,7 @@ export class JobsService {
   constructor(private http: HttpClient) {}
 
   create(job: Job): Observable<Job> {
-    return this.http.post(`${environment.fbDbUrl}/jobs.json`, job)
+    return this.http.post(`${environment.firebase.databaseURL}/jobs.json`, job)
       .pipe(map((response: FbCreateResponse) => {
         return {
           ...job,
@@ -20,7 +20,7 @@ export class JobsService {
       }))
   }
   getAll(): Observable<Job[]> {
-    return this.http.get(`${environment.fbDbUrl}/jobs.json`)
+    return this.http.get(`${environment.firebase.databaseURL}/jobs.json`)
       .pipe(map((response: {[key: string]: any}) => {
         return Object
           .keys(response)
@@ -33,7 +33,7 @@ export class JobsService {
   }
 
   getById(id: string): Observable<Job> {
-    return this.http.get<Job>(`${environment.fbDbUrl}/jobs/${id}.json`)
+    return this.http.get<Job>(`${environment.firebase.databaseURL}/jobs/${id}.json`)
       .pipe(map((job: Job) => {
         return {
           ...job, id,
@@ -43,9 +43,9 @@ export class JobsService {
   }
 
   remove(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.fbDbUrl}/jobs/${id}.json`)
+    return this.http.delete<void>(`${environment.firebase.databaseURL}/jobs/${id}.json`)
   }
   update(job: Job): Observable<Job> {
-    return this.http.patch<Job>(`${environment.fbDbUrl}/jobs/${job.id}.json`, job)
+    return this.http.patch<Job>(`${environment.firebase.databaseURL}/jobs/${job.id}.json`, job)
   }
 }

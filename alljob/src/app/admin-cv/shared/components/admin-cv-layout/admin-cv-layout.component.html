@@ -6,9 +6,6 @@
     </h1>
 
     <ul *ngIf="cv_auth.isAuthenticated()">
-        <li >
-            <a >CV</a>
-        </li>
         <li routerLinkActive="active">
             <a [routerLink]="['/admin-cv', 'cv-dashboard']">Home</a>
         </li>
@@ -19,6 +16,10 @@
             <a href="#" (click)="logout($event)">Logout</a>
         </li>
     </ul>
+
+    <h1 routerLinkActive="active">
+        <a [routerLink]="['/cv-registre']">Register</a>
+    </h1>
 </nav>
 
 <div class="container">

@@ -11,7 +11,7 @@ export class CvsService {
     constructor(private http: HttpClient) { }
 
     create(cv: Cv): Observable<Cv> {
-        return this.http.post(`${environment.fbDbUrl}/cvs.json`, cv)
+        return this.http.post(`${environment.firebase.databaseURL}/cvs.json`, cv)
             .pipe(map((response: FbCreateResponse) => {
                 return {
                     ...cv,
@@ -21,7 +21,7 @@ export class CvsService {
             }))
     }
     getAll(): Observable<Cv[]> {
-        return this.http.get(`${environment.fbDbUrl}/cvs.json`)
+        return this.http.get(`${environment.firebase.databaseURL}/cvs.json`)
             .pipe(map((response: { [key: string]: any }) => {
                 return Object
                     .keys(response)
@@ -34,7 +34,7 @@ export class CvsService {
     }
 
     getById(id: string): Observable<Cv> {
-        return this.http.get<Cv>(`${environment.fbDbUrl}/cvs/${id}.json`)
+        return this.http.get<Cv>(`${environment.firebase.databaseURL}/cvs/${id}.json`)
             .pipe(map((cv: Cv) => {
                 return {
                     ...cv, id,
@@ -44,9 +44,9 @@ export class CvsService {
     }
 
     remove(id: string): Observable<void> {
-        return this.http.delete<void>(`${environment.fbDbUrl}/cvs/${id}.json`)
+        return this.http.delete<void>(`${environment.firebase.databaseURL}/cvs/${id}.json`)
     }
     update(cv: Cv): Observable<Cv> {
-        return this.http.patch<Cv>(`${environment.fbDbUrl}/cvs/${cv.id}.json`, cv)
+        return this.http.patch<Cv>(`${environment.firebase.databaseURL}/cvs/${cv.id}.json`, cv)
     }
 }

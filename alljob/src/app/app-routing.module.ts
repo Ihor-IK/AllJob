@@ -6,6 +6,9 @@ import { JobPageComponent } from './job-page/job-page.component';
 import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
+import { CvRegisterComponent } from './admin-cv/cv-register/cv-register.component';
+
+
 
 
 const routes: Routes = [
@@ -16,8 +19,10 @@ const routes: Routes = [
       {path: '', component: HomePageComponent},
       {path: 'job/:id', component: JobPageComponent},
       {path: 'cv', component: CvHomePageComponent},
-      {path: 'portfolio', component: PortfolioPageComponent},
-      {path: 'cv/:id', component: CvPageComponent}
+      {path: 'cv/:id', component: CvPageComponent},
+      {path: 'cv-registre', component: CvRegisterComponent},
+      {path: 'portfolio', component: PortfolioPageComponent}
+      
     ]
   },
   {

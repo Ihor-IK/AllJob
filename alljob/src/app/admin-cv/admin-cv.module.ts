@@ -17,6 +17,8 @@ import { CvLoginPageComponent } from './cv-login-page/cv-login-page.component';
 import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
 
 
+
+
 @NgModule({
     declarations: [
       AdminCvLayoutComponent,
@@ -36,6 +38,7 @@ import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
         {
           path: '', component: AdminCvLayoutComponent, children: [
             {path: '', redirectTo: '/admin-cv/cv-login', pathMatch: 'full'},
+            // {path: 'cv-login/cv-registre', component: CvRegisterComponent},
             {path: 'cv-login', component: CvLoginPageComponent},
             {path: 'cv-dashboard', component: CvDashboardPageComponent, canActivate: [CvAuthGuard]},
             {path: 'cv-create', component: CvCreatePageComponent, canActivate: [CvAuthGuard]},

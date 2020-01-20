@@ -1,62 +1,62 @@
 <div *ngIf="form; else loading">
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
-            <label for="title">Job title: {{ cv.title }}</label>
+            <label for="title">Cv title: {{ cv.title }}</label>
             <input id="title" type="text" formControlName="title">
             <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation" ,>
                 <small *ngIf="form.get('title').errors.required">
-                    Enter job title
+                    Enter Cv title
                 </small>
             </div>
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
-            <label for="author">Company job: {{ cv.author }}</label>
+            <label for="author">Person cv: {{ cv.author }}</label>
             <input id="author" type="text" formControlName="author">
             <div *ngIf="form.get('author').touched && form.get('author').invalid" class="validation">
                 <small *ngIf="form.get('author').errors.required">
-                    Enter company job
+                    Enter person cv
                 </small>
             </div>
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('city').touched && form.get('city').invalid}">
-            <label for="city">Company city: {{ cv.city }} </label>
+            <label for="city">The person lives in the city: {{ cv.city }} </label>
             <input id="city" type="text" formControlName="city">
             <div *ngIf="form.get('city').touched && form.get('city').invalid" class="validation">
                 <small *ngIf="form.get('city').errors.required">
-                    Enter company city
+                    Enter The person lives in the city
                 </small>
             </div>
         </div>
 
         <div class="form-control"
             [ngClass]="{invalid: form.get('Description').touched && form.get('Description').invalid}">
-            <label for="Description">Description:{{ cv.Description }}</label>
+            <label for="Description">Person description:{{ cv.Description }}</label>
             <input id="Description" type="text" formControlName="Description">
             <div *ngIf="form.get('Description').touched && form.get('Description').invalid" class="validation">
                 <small *ngIf="form.get('Description').errors.required">
-                    Enter Description
+                    Enter Person description
                 </small>
             </div>
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('salary').touched && form.get('salary').invalid}">
-            <label for="salary">Company salary: {{ cv.salary }}</label>
+            <label for="salary">The salary is: {{ cv.salary }}</label>
             <input id="salary" type="text" formControlName="salary">
             <div *ngIf="form.get('salary').touched && form.get('salary').invalid" class="validation">
                 <small *ngIf="form.get('salary').errors.required">
-                    Enter Company salary
+                    Enter the salary
                 </small>
             </div>
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('type').touched && form.get('type').invalid}">
-            <label for="type">Type job: {{ cv.type }}</label>
+            <label for="type">Type salary: {{ cv.type }}</label>
             <input id="type" type="text" formControlName="type">
             <div *ngIf="form.get('type').touched && form.get('type').invalid" class="validation">
                 <small *ngIf="form.get('type').errors.required">
-                    Enter Type job
+                    Enter Type salary
                 </small>
             </div>
         </div>
@@ -72,21 +72,21 @@
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('date').touched && form.get('date').invalid}">
-            <label for="date">date: {{ cv.date | date:'dd.MM.yyyy' }}</label>
+            <label for="date">search begin date {{ cv.date | date:'dd.MM.yyyy' }}</label>
             <input id="date" type="date" formControlName="date">
             <div *ngIf="form.get('date').touched && form.get('date').invalid" class="validation">
                 <small *ngIf="form.get('date').errors.required">
-                    Enter date
+                    Enter search begin date
                 </small>
             </div>
         </div>
 
         <div class="form-control" [ngClass]="{invalid: form.get('dateEnd').touched && form.get('dateEnd').invalid}">
-            <label for="dateEnd">dateEnd: {{ cv.dateEnd | date:'dd.MM.yyyy' }}</label>
+            <label for="dateEnd">Search completion date: {{ cv.dateEnd | date:'dd.MM.yyyy' }}</label>
             <input id="dateEnd" type="date" formControlName="dateEnd">
             <div *ngIf="form.get('dateEnd').touched && form.get('dateEnd').invalid" class="validation">
                 <small *ngIf="form.get('dateEnd').errors.required">
-                    Enter dateEnd
+                    Enter Search completion date
                 </small>
             </div>
         </div>

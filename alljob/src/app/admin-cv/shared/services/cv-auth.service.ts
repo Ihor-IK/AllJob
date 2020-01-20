@@ -1,12 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {FbAuthResponse, User} from '../../../shared/interfaces';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, BehaviorSubject,Subject, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {catchError, tap} from 'rxjs/operators';
 
+
 @Injectable({providedIn: 'root'})
 export class CvAuthService {
+
+  private currentUserSubject: BehaviorSubject<User>;
+    public currentUser: Observable<User>;
 
   public error$: Subject<string> = new Subject<string>()
 
@@ -23,7 +27,7 @@ export class CvAuthService {
 
   login(user: User): Observable<any> {
     user.returnSecureToken = true
-    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebase.apiKey}`, user)
       .pipe(
         tap(this.setToken),
         catchError(this.cv_handleError.bind(this))
