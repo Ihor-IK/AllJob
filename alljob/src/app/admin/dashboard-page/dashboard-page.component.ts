@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {JobsService} from '../../shared/jobs.service';
-import {Job} from '../../shared/interfaces';
+import {Job, User} from '../../shared/interfaces';
 import {Subscription} from 'rxjs';
 import { AlertService } from '../shared/services/alert.service';
 
@@ -15,6 +15,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   pSub: Subscription
   dSub: Subscription
   searchStr = ''
+
 
   constructor(private jobsService: JobsService,
     private alert: AlertService) {

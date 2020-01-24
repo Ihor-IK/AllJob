@@ -33,6 +33,8 @@ import { CvFilterSalaryPipe } from './shared/components/pipe/cv_filter-salary.pi
 import { CvFilterCityPipe } from './shared/components/pipe/cv_filter-city.pipe';
 import { CvFilterSkillsPipe } from './shared/components/pipe/cv_filter-skills.pipe';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CvRegisterComponent } from './admin-cv/cv-register/cv-register.component';
 
 
@@ -87,6 +89,8 @@ const CV_INTERCEPTOR_PROVIDER: Provider = {
     FormsModule,
     AppRoutingModule,
     SharedModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

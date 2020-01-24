@@ -1,9 +1,9 @@
 <div *ngIf="jobs.length; else loading">
-    <div class="form-control">
-      <input type="text" placeholder="Find a job..." [(ngModel)]="searchStr">
-    </div>
-    <table>
-      <thead>
+  <div class="form-control">
+    <input type="text" placeholder="Find a job..." [(ngModel)]="searchStr">
+  </div>
+  <table>
+    <thead>
       <tr>
         <th>#</th>
         <th>Act</th>
@@ -16,17 +16,14 @@
         <th>Type</th>
         <th>Required Skills</th>
         <th>Date End</th>
-        
+
       </tr>
-      </thead>
-      <tbody>
+    </thead>
+    <tbody>
       <tr *ngFor="let job of jobs | searchJobs:searchStr; let idx = index">
         <td>{{ idx + 1 }}</td>
         <td>
-          <button
-            class="btn btn-link open"
-            [routerLink]="['/admin', 'job', job.id, 'edit']"
-          >
+          <button class="btn btn-link open" [routerLink]="['/admin', 'job', job.id, 'edit']">
             Open
           </button>
           <a (click)="remove(job.id)">Delete</a>
@@ -41,12 +38,11 @@
         <td>{{ job.requiredSkills }}</td>
         <td>{{ job.dateEnd }}</td>
       </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  
-  <ng-template #loading>
-    <p class="text-center">Loading...</p>
-  </ng-template>
-  
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>
