@@ -6,7 +6,12 @@ import { JobPageComponent } from './job-page/job-page.component';
 import { CvHomePageComponent } from './cv-home-page/cv-home-page.component';
 import { PortfolioPageComponent } from './portfolio-page/portfolio-page.component';
 import { CvPageComponent } from './cv-page/cv-page.component';
-import { CvRegisterComponent } from './admin-cv/cv-register/cv-register.component';
+import { RegisterComponent } from './register/register.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 
 
@@ -20,11 +25,20 @@ const routes: Routes = [
       {path: 'job/:id', component: JobPageComponent},
       {path: 'cv', component: CvHomePageComponent},
       {path: 'cv/:id', component: CvPageComponent},
-      {path: 'cv-registre', component: CvRegisterComponent},
+       {path: 'cv-registre', component: RegisterComponent},
       {path: 'portfolio', component: PortfolioPageComponent}
-      
-    ]
-  },
+    ]},
+    {
+      path: '', component: MainLayoutComponent, children:[
+        { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+        { path: 'sign-in', component: SignInComponent },
+        { path: 'register-user', component: SignUpComponent },
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'forgot-password', component: ForgotPasswordComponent },
+        { path: 'verify-email-address', component: VerifyEmailComponent }
+      ]
+    },
+
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule'
   },

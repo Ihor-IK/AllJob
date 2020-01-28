@@ -1,6 +1,32 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
     <h1>Create a new cv</h1>
 
+    <!-- Show user data when logged in -->
+
+    <div class="row" *ngIf="authService.userData as user">
+
+        <div class="col-md-12">
+
+            <div class="media">
+
+                <div class="media-body">
+
+                    <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+
+                    <div class="form-control"
+                        [ngClass]="{invalid: form.get('email_user').touched && form.get('email_user').invalid}">
+                        <label for="email_user">email_user:</label>
+                        <input id="email_user" type="email" formControlName="email_user" value="{{user.email}}">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
         <label for="title">Title of cv:</label>
         <input id="title" type="text" formControlName="title">

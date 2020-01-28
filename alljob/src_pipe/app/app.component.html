@@ -1,0 +1,33 @@
+<!-- <div class="container">
+    <button class="btn btn-primary btn-lg" (click)="onStudentsClick()"> Display Students </button>
+    <button class="btn btn-primary btn-lg" (click)="onEmployeesClick()"> Display Employees </button>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div>
+            <ul class="nav nav-pills">
+              <li [ngClass]="{'active' : displayStudents == true}"><a (click)="onStudentsClick()">Student Details</a></li>
+              <li [ngClass]="{'active' : displayEmployees == true}"><a (click)="onEmployeesClick()">Employee Details</a></li>
+              <li [ngClass]="{'active' : displayDirectives == true }"> <a (click)="onDirectivesDemoClick()"> ngDirectives Demo</a></li>
+              <li [ngClass]="{'active' : displayPipes == true }"> <a (click)="onPipesDemoClick()"> Pipes Demo</a></li>
+             
+            </ul>
+          </div>
+    </div>
+</div>
+
+<hr/>
+
+<app-employees *ngIf="displayEmployees"> </app-employees> <!-- to display the employees comp -->
+
+<app-students *ngIf="displayStudents"> </app-students> <!-- to display the students comp -->
+
+<app-ng-directives *ngIf="displayDirectives"> </app-ng-directives>
+
+<app-pipes-demo *ngIf="displayPipes"> </app-pipes-demo>
+
+<br/>
+
+
+

@@ -1,0 +1,61 @@
+<hr>
+
+<div class="container">
+    <div class="row">
+      <div class="form-group">
+         <div class="col-xs-12"> <!-- name-->
+           <label class="col-xs-2">Student Name : </label>
+           <input type="text" class="col-xs-3" [(ngModel)]="sname">
+         </div>
+
+         <div class="col-xs-12"> <!-- id -->
+            <label class="col-xs-2"> Student ID : </label> 
+            <input class="col-xs-3" type="text" [(ngModel)]="sid">
+          </div>
+
+          <div class="col-xs-12"> <!-- course select -->
+            <label class="col-xs-2"> Student Course :  </label> 
+            <select [(ngModel)]="scourse">
+              <option value=""></option>
+              <option> Angular</option>
+              <option> PHP</option>
+              <option> .Net</option>
+              <option> Java </option>
+            </select>
+          </div>
+
+          <div class="col-xs-12"> <!-- Check box -->
+            <label class="col-xs-2"> Grade :  </label> 
+             <input type="checkbox" [(ngModel)]="pass"> Pass 
+             <input type="checkbox" [(ngModel)]="fail">Fail
+          </div>
+          <div class="col-xs-12">
+            <label class="col-xs-2"> To Submit :  </label> 
+            <button class="btn btn-warning" (click)="onSubmit()" [disabled]="pass == false">Submit</button>
+          </div>
+          
+
+      </div>
+      
+    </div>
+    <hr>
+<table>
+  <tr>
+    <th>SName</th>
+    <th>SId</th>
+    <th>SCourse</th>
+    <th>Pass?</th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td> {{student.sname}} </td>
+    <td> {{student.sid}} </td>
+    <td> {{student.scourse}} </td>
+    <!-- <td> {{students[0].pass}} </td> -->
+    <td> <span *ngIf="student.pass" [ngStyle]="{backgroundColor : 'green'}"> Pass </span>
+         <span *ngIf="!student.pass" [ngStyle]="{backgroundColor : 'red'}"> Failed </span>
+    </td>
+  </tr>
+
+</table>
+</div>
+

@@ -1,0 +1,112 @@
+
+<div class="container"> 
+    <div class="row">
+            <h3> Custom Pipe</h3>
+            <div class="form-group">
+              Enter File Size : <input class="form-control" type="number" [(ngModel)]="memory"> 
+              Specify the format of the file :
+              <select [(ngModel)]="format">
+                  <option> MB </option>
+                  <option> GB </option>
+                  <option> TB </option>
+              </select>
+
+              <br/>
+              <span> Without a pipe size is : {{memory}}</span><br/>
+              <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+                  With a custom pipe size is : {{memory | sizeFormat : format}}</span>
+            </div>
+            <hr>
+            <h3> Apply all the pipes </h3>
+            <div class="pull-left">
+                How you would like order? 
+                <select [(ngModel)]="order">
+                    <option> name </option>
+                    <option> id </option>
+                    <option> salary </option>
+                </select>
+            </div>
+            <div class="pull-right">
+                Select number of employees to display : 
+                <select [(ngModel)]="empIndex">
+                    <option *ngFor="let emp of Employees; let i = index"> {{i+1}} </option>
+                    <!-- <option> 3 </option>
+                    <option> 5 </option>
+                    <option> 7 </option> -->
+                </select>
+            </div>
+            <table>
+                    <tr>
+                            <th style="cursor: pointer;" (click)="onOrderBy('name')"> Name </th>
+                            <th style="cursor: pointer;" (click)="onOrderBy('id')"> Id </th>
+                            <th style="cursor: pointer;" (click)="onOrderBy('salary')"> Salary </th>
+                            <th style="cursor: pointer;" (click)="onOrderBy('country')"> Country </th>
+                            <th style="cursor: pointer;" (click)="onOrderBy('joinDate')"> JoinDate</th>
+                            <th style="cursor: pointer;" (click)="onOrderBy('department')"> Department</th>
+                    </tr>
+                    <tr *ngFor="let emp of Employees | slice : limitStr : empIndex | orderBy : order">
+                            <td> {{emp.name | uppercase}} </td>
+                            <td> {{emp.id}}</td>
+                            <td> {{emp.salary | currency : getCountry(emp.country)}}</td>
+                            <td> {{emp.country}}</td>
+                            <td> {{emp.joinDate | date : 'dd-MM-yyyy'}}</td>
+                            <td> {{emp.department}}</td>
+                    </tr>
+            </table>
+    
+            <ul class="pagination pull-right">
+                <li [ngClass]="{'disabled' : index == 1}"> <a [ngClass]="{'disabled' : index == 1}" (click)="onFirst(true)"> First </a></li>
+                <li [ngClass]="{'disabled' : index == 1}"> <a [ngClass]="{'disabled' : index == 1}" (click)="onPrevious(true)"> Previous </a></li>
+
+                <li [ngClass]="{'active' : page == index}" *ngFor="let page of totalPages"> <a (click)="onPageClick(page)"> Page {{page}} </a></li>
+
+                <li> <a (click)="onPrevious(false)"> Next </a></li>
+                <li> <a (click)="onFirst(false)"> Last </a></li>
+             </ul>
+
+        <h1> Pipes Demo </h1> <!-- pipes are used to format the data in desired format -->
+
+        <h3> Uppercase Pipe Demo </h3> <!-- uppercase pipe converts the given text in uppercase -->
+        <span> Without pipe : {{collegeName}}</span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> With a pipe : {{collegeName | uppercase }} </span>
+        
+        <hr>
+
+        <h3> Currency Pipe </h3> <!-- display the currency in a specified format -->
+        <span> Without a pipe : {{Amount}}</span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+            With a pipe : {{Amount | currency : 'AUD'}} </span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+                    With a pipe : {{Amount | currency : 'CAD'}} </span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+                            With a pipe : {{Amount | currency : 'GBP'}} </span>
+
+        <hr>
+
+        <h3> Date pipe </h3>
+        <span>Without a pipe - {{da}}</span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+            With a pipe - {{da | date : 'fullDate' }}</span> <br/>
+        <span [ngStyle] = "{'backgroundColor' : 'yellow', 'fontSize' : '20px'}"> 
+                With a pipe - {{da | date : 'MM-dd-yyyy' }}</span> <br/>
+
+        <hr>
+
+        <h3> Slice Pipe </h3> <!-- slice pipe is used to create a subset of an array-->
+        Select the rows to display : 
+        <select [(ngModel)]="limitEnd"> 
+            <option> 1 </option>
+            <option> 2 </option>
+            <option> 3 </option>
+            <option> 4 </option>
+        </select>
+        <li *ngFor="let server of servers | slice : limitStr : limitEnd">
+                {{server | slice : 0 :4}}
+        </li>
+
+        <hr>
+
+        
+
+    </div>
+</div>

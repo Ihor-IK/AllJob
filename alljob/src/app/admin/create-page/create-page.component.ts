@@ -1,8 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, NgZone} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Job} from '../../shared/interfaces';
+import {Job, User} from '../../shared/interfaces';
 import { JobsService } from '../../shared/jobs.service';
 import { AlertService } from '../shared/services/alert.service';
+import { AuthenticationService } from 'src/app/shared/components/authentication.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
+
+
 
 @Component({
   selector: 'app-create-page',
@@ -13,12 +18,21 @@ export class CreatePageComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private jobsService: JobsService,
-    private alert: AlertService ) {
+user : User
+
+
+  constructor(
+    private jobsService: JobsService,
+    private alert: AlertService,
+    public authService: AuthenticationService,
+     
+    public router: Router,
+
+    public ngZone: NgZone ) {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
+      this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
@@ -27,7 +41,8 @@ export class CreatePageComponent implements OnInit {
       salary: new FormControl(null, Validators.required),
       type: new FormControl(null, Validators.required),
       requiredSkills: new FormControl(null, Validators.required),
-      dateEnd: new FormControl(null, Validators.required)
+      dateEnd: new FormControl(null, Validators.required),
+      email_user: new FormControl(null)
     })
   }
 
@@ -35,8 +50,7 @@ export class CreatePageComponent implements OnInit {
     if (this.form.invalid) {
       return
     }
-  
-    const job: Job = {
+     const job: Job = {
       title: this.form.value.title,
       author: this.form.value.author,
       text: this.form.value.text,
@@ -46,7 +60,8 @@ export class CreatePageComponent implements OnInit {
       companyDescription: this.form.value.companyDescription,
       salary: this.form.value.salary,
       type: this.form.value.type,
-      requiredSkills: this.form.value.requiredSkills
+      requiredSkills: this.form.value.requiredSkills,      
+      email_user: this.form.value.email_user
     }
 
     this.jobsService.create(job).subscribe(() => {

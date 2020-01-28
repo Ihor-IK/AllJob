@@ -35,7 +35,13 @@ import { CvFilterSkillsPipe } from './shared/components/pipe/cv_filter-skills.pi
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { CvRegisterComponent } from './admin-cv/cv-register/cv-register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthenticationService } from './shared/components/authentication.service';
 
 
 
@@ -80,7 +86,12 @@ const CV_INTERCEPTOR_PROVIDER: Provider = {
     CvFilterCityPipe,
     CvFilterAuthorPipe,
     CvFilterSkillsPipe,
-    CvRegisterComponent
+    RegisterComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
     
 
   ],
@@ -94,7 +105,7 @@ const CV_INTERCEPTOR_PROVIDER: Provider = {
     AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthInterceptor, CvAuthInterceptor],
+  providers: [AuthInterceptor, CvAuthInterceptor,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

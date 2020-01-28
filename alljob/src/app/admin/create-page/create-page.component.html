@@ -1,144 +1,118 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-    <h1>Create a new job</h1>
-  
-    <div
-      class="form-control"
-      [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
-    >
-      <label for="title">Title of jobs:</label>
-      <input id="title" type="text" formControlName="title">
-      <div
-        *ngIf="form.get('title').touched && form.get('title').invalid"
-        class="validation"
-      >
-        <small *ngIf="form.get('title').errors.required">
-          Enter job title
-        </small>
+  <h1>Create a new job</h1>
+
+<!-- Show user data when logged in -->
+
+<div class="row" *ngIf="authService.userData as user">
+
+  <div class="col-md-12">
+
+    <div class="media">
+
+      <div class="media-body">
+
+        <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+
+        <div class="form-control"
+        [ngClass]="{invalid: form.get('email_user').touched && form.get('email_user').invalid}">
+        <label for="email_user">email_user:</label>
+        <input id="email_user" type="email" formControlName="email_user" value="{{user.email}}">
       </div>
-    </div>
-  
-    <div class="form-control">
-      <label>Content job:</label>
-      <quill-editor formControlName="text"></quill-editor>
-    </div>
-  
-    <div
-      class="form-control"
-      [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}"
-    >
-      <label for="author">Company job:</label>
-      <input id="author" type="text" formControlName="author">
-      <div
-        *ngIf="form.get('author').touched && form.get('author').invalid"
-        class="validation"
-      >
-        <small *ngIf="form.get('author').errors.required">
-          Enter company job
-        </small>
+        
       </div>
+
     </div>
 
-    <div
-    class="form-control"
-    [ngClass]="{invalid: form.get('city').touched && form.get('city').invalid}"
-  >
+  </div>
+
+</div>
+
+
+  <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+    <label for="title">Title of jobs: </label>
+    <input id="title" type="text" formControlName="title">
+    <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+      <small *ngIf="form.get('title').errors.required">
+        Enter job title
+      </small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label>Content job:</label>
+    <quill-editor formControlName="text"></quill-editor>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
+    <label for="author">Company job:</label>
+    <input id="author" type="text" formControlName="author">
+    <div *ngIf="form.get('author').touched && form.get('author').invalid" class="validation">
+      <small *ngIf="form.get('author').errors.required">
+        Enter company job
+      </small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('city').touched && form.get('city').invalid}">
     <label for="city">Company city:</label>
     <input id="city" type="text" formControlName="city">
-    <div
-      *ngIf="form.get('city').touched && form.get('city').invalid"
-      class="validation"
-    >
+    <div *ngIf="form.get('city').touched && form.get('city').invalid" class="validation">
       <small *ngIf="form.get('city').errors.required">
         Enter company city
       </small>
     </div>
   </div>
 
-  <div
-    class="form-control"
-    [ngClass]="{invalid: form.get('companyDescription').touched && form.get('companyDescription').invalid}"
-  >
+  <div class="form-control"
+    [ngClass]="{invalid: form.get('companyDescription').touched && form.get('companyDescription').invalid}">
     <label for="companyDescription">Company Description:</label>
     <input id="companyDescription" type="text" formControlName="companyDescription">
-    <div
-      *ngIf="form.get('companyDescription').touched && form.get('companyDescription').invalid"
-      class="validation"
-    >
+    <div *ngIf="form.get('companyDescription').touched && form.get('companyDescription').invalid" class="validation">
       <small *ngIf="form.get('companyDescription').errors.required">
         Enter Company Description
       </small>
     </div>
   </div>
 
-  <div
-  class="form-control"
-  [ngClass]="{invalid: form.get('salary').touched && form.get('salary').invalid}"
->
-  <label for="salary">Company salary:</label>
-  <input id="salary" type="text" formControlName="salary">
-  <div
-    *ngIf="form.get('salary').touched && form.get('salary').invalid"
-    class="validation"
-  >
-    <small *ngIf="form.get('salary').errors.required">
-      Enter Company salary
-    </small>
+  <div class="form-control" [ngClass]="{invalid: form.get('salary').touched && form.get('salary').invalid}">
+    <label for="salary">Company salary:</label>
+    <input id="salary" type="text" formControlName="salary">
+    <div *ngIf="form.get('salary').touched && form.get('salary').invalid" class="validation">
+      <small *ngIf="form.get('salary').errors.required">
+        Enter Company salary
+      </small>
+    </div>
   </div>
-</div>
 
-<div
-class="form-control"
-[ngClass]="{invalid: form.get('type').touched && form.get('type').invalid}"
->
-<label for="type">Type salary:</label>
-<input id="type" type="text" formControlName="type">
-<div
-  *ngIf="form.get('type').touched && form.get('type').invalid"
-  class="validation"
->
-  <small *ngIf="form.get('type').errors.required">
-    Enter Type salary
-  </small>
-</div>
-</div>
+  <div class="form-control" [ngClass]="{invalid: form.get('type').touched && form.get('type').invalid}">
+    <label for="type">Type salary:</label>
+    <input id="type" type="text" formControlName="type">
+    <div *ngIf="form.get('type').touched && form.get('type').invalid" class="validation">
+      <small *ngIf="form.get('type').errors.required">
+        Enter Type salary
+      </small>
+    </div>
+  </div>
 
-<div
-class="form-control"
-[ngClass]="{invalid: form.get('requiredSkills').touched && form.get('requiredSkills').invalid}"
->
-<label for="requiredSkills">Required Skills:</label>
-<input id="requiredSkills" type="text" formControlName="requiredSkills">
-<div
-  *ngIf="form.get('requiredSkills').touched && form.get('requiredSkills').invalid"
-  class="validation"
->
-  <small *ngIf="form.get('requiredSkills').errors.required">
-    Enter Required Skills
-  </small>
-</div>
-</div>
+  <div class="form-control"
+    [ngClass]="{invalid: form.get('requiredSkills').touched && form.get('requiredSkills').invalid}">
+    <label for="requiredSkills">Required Skills:</label>
+    <input id="requiredSkills" type="text" formControlName="requiredSkills">
+    <div *ngIf="form.get('requiredSkills').touched && form.get('requiredSkills').invalid" class="validation">
+      <small *ngIf="form.get('requiredSkills').errors.required">
+        Enter Required Skills
+      </small>
+    </div>
+  </div>
 
-<div
-class="form-control"
-[ngClass]="{invalid: form.get('dateEnd').touched && form.get('dateEnd').invalid}"
->
-<label for="dateEnd">dateEnd:</label>
-<input id="dateEnd" type="date" formControlName="dateEnd">
-<div
-  *ngIf="form.get('dateEnd').touched && form.get('dateEnd').invalid"
-  class="validation"
->
-  <small *ngIf="form.get('dateEnd').errors.required">
-    Enter dateEnd
-  </small>
-</div>
-</div>
-
-  
-    <button
-      type="submit"
-      class="btn btn-block btn-dark"
-      [disabled]="form.invalid"
-    >Create a job</button>
-  </form>
-
+  <div class="form-control" [ngClass]="{invalid: form.get('dateEnd').touched && form.get('dateEnd').invalid}">
+    <label for="dateEnd">dateEnd:</label>
+    <input id="dateEnd" type="date" formControlName="dateEnd">
+    <div *ngIf="form.get('dateEnd').touched && form.get('dateEnd').invalid" class="validation">
+      <small *ngIf="form.get('dateEnd').errors.required">
+        Enter dateEnd
+      </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-block btn-dark" [disabled]="form.invalid">Create a job</button>
+</form>

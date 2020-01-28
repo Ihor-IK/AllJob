@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CvAlertService } from '../shared/services/cv-alert.service';
 import {CvsService} from '../../shared/cv.service';
-import { Cv } from '../../shared/interfaces';
+import { Cv, User } from '../../shared/interfaces';
+import { AuthenticationService } from 'src/app/shared/components/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cv-create-page',
@@ -12,9 +14,17 @@ import { Cv } from '../../shared/interfaces';
 export class CvCreatePageComponent implements OnInit {
 
   form: FormGroup;
+  user : User;
 
-  constructor(private cvsService: CvsService,
-    private alert: CvAlertService ) {
+  constructor(
+    private cvsService: CvsService,
+    private alert: CvAlertService,
+    public authService: AuthenticationService,
+     
+    public router: Router,
+
+    public ngZone: NgZone
+     ) {
   }
 
   ngOnInit() {
@@ -27,7 +37,8 @@ export class CvCreatePageComponent implements OnInit {
       salary: new FormControl(null, Validators.required),
       type: new FormControl(null, Validators.required),
       Skills: new FormControl(null, Validators.required),
-      dateEnd: new FormControl(null, Validators.required)
+      dateEnd: new FormControl(null, Validators.required),
+      email_user: new FormControl(null)
     })
   }
 
@@ -46,7 +57,8 @@ export class CvCreatePageComponent implements OnInit {
       Description: this.form.value.Description,
       salary: this.form.value.salary,
       type: this.form.value.type,
-      Skills: this.form.value.Skills
+      Skills: this.form.value.Skills,
+      email_user: this.form.value.email_user
     }
 
     this.cvsService.create(cv).subscribe(() => {

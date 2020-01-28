@@ -37,14 +37,15 @@ export class CvEditPageComponent implements OnInit {
       this.form = new FormGroup({
         title: new FormControl(cv.title, Validators.required),
         text: new FormControl(cv.text, Validators.required),
-        author: new FormControl(null, Validators.required),
-        city: new FormControl(null, Validators.required),
-        Description: new FormControl(null, Validators.required),
-        salary: new FormControl(null, Validators.required),
-        type: new FormControl(null, Validators.required),
-        Skills: new FormControl(null, Validators.required),
-        date: new FormControl(null, Validators.required),
-        dateEnd: new FormControl(null, Validators.required)
+        author: new FormControl(cv.author, Validators.required),
+        city: new FormControl(cv.city, Validators.required),
+        Description: new FormControl(cv.Description, Validators.required),
+        salary: new FormControl(cv.salary, Validators.required),
+        type: new FormControl(cv.type, Validators.required),
+        Skills: new FormControl(cv.Skills, Validators.required),
+        date: new FormControl(cv.date, Validators.required),
+        dateEnd: new FormControl(cv.dateEnd, Validators.required),
+        email_user: new FormControl(cv.email_user)
       })
     })
   }
@@ -74,7 +75,8 @@ export class CvEditPageComponent implements OnInit {
       type: this.form.value.type,
       Skills: this.form.value.Skills,
       date: this.form.value.date,
-      dateEnd: this.form.value.dateEnd
+      dateEnd: this.form.value.dateEnd,
+      email_user: this.form.value.email_user
     }).subscribe(() => {
       this.submitted = false
       this.cv_alert.success('The cv was update')

@@ -16,6 +16,8 @@ import { CvEditPageComponent } from './cv-edit-page/cv-edit-page.component';
 import { CvLoginPageComponent } from './cv-login-page/cv-login-page.component';
 import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
 
+// import { RegisterComponent } from '../register/register.component';
+
 
 
 
@@ -27,6 +29,7 @@ import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
       CvDashboardPageComponent,
       CvEditPageComponent,
       CvLoginPageComponent,
+      // RegisterComponent,
       CvSearchPipe
     ],
     imports: [
@@ -38,7 +41,7 @@ import { CvSearchPipe } from "./shared/pipes/cv-search.pipe";
         {
           path: '', component: AdminCvLayoutComponent, children: [
             {path: '', redirectTo: '/admin-cv/cv-login', pathMatch: 'full'},
-            // {path: 'cv-login/cv-registre', component: CvRegisterComponent},
+            // {path: 'cv-registre', component: RegisterComponent},
             {path: 'cv-login', component: CvLoginPageComponent},
             {path: 'cv-dashboard', component: CvDashboardPageComponent, canActivate: [CvAuthGuard]},
             {path: 'cv-create', component: CvCreatePageComponent, canActivate: [CvAuthGuard]},

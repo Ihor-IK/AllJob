@@ -92,6 +92,16 @@
       </div>
     </div>
 
+    <div class="form-control" [ngClass]="{invalid: form.get('email_user').touched && form.get('email_user').invalid}">
+      <label for="email_user">email_user: {{ job.email_user | date:'dd.MM.yyyy' }}</label>
+      <input id="email_user" type="email" formControlName="email_user">
+      <div *ngIf="form.get('email_user').touched && form.get('email_user').invalid" class="validation">
+        <small *ngIf="form.get('email_user').errors.required">
+          Enter dateEnd
+        </small>
+      </div>
+    </div>
+
 
     <div class="form-control">
       <quill-editor formControlName="text"></quill-editor>

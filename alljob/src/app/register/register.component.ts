@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { CvAlertService } from '../shared/services/cv-alert.service';
-import { CvAuthService } from '../shared/services/cv-auth.service';
-import { UserService } from '../../shared/user.service';
+import { CvAlertService } from '../admin-cv/shared/services/cv-alert.service';
+import { CvAuthService } from '../admin-cv/shared/services/cv-auth.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
-    selector: 'app-cv-register',
-    templateUrl: './cv-register.component.html',
-    styleUrls: ['./cv-register.component.scss']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss']
 })
-export class CvRegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
     registerForm: FormGroup;
     loading = false;

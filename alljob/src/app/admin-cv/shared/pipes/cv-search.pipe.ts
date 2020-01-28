@@ -13,7 +13,7 @@ export class CvSearchPipe implements PipeTransform {
     }
 
     return cvs.filter(cv => {
-      return cv.title.toLowerCase().includes(search.toLowerCase())
+      return cv.email_user.toLowerCase().includes(search.toLowerCase())
     })
   }
 

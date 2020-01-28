@@ -1,7 +1,12 @@
 export interface User {
     email: string
-    password: string
+    password?: string
     returnSecureToken?: boolean
+
+    uid?: string;
+    displayName?: string;
+    photoURL?: string;
+    emailVerified?: boolean;
   }
   export interface FbAuthResponse {
     idToken: string
@@ -20,6 +25,8 @@ export interface User {
     salary: string
     type: string
     requiredSkills: string
+    email_user?: string
+    user_uid?: string
   }
 
   export interface Cv {
@@ -34,6 +41,7 @@ export interface User {
     salary: string
     type: string
     Skills: string
+    email_user?: string
   }
 
   export interface FbCreateResponse {

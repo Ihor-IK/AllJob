@@ -3,6 +3,8 @@ import {JobsService} from '../../shared/jobs.service';
 import {Job, User} from '../../shared/interfaces';
 import {Subscription} from 'rxjs';
 import { AlertService } from '../shared/services/alert.service';
+import { AuthService } from '../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-dashboard-page',
@@ -10,15 +12,20 @@ import { AlertService } from '../shared/services/alert.service';
   styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
-
+  user: User
   jobs: Job[] = []
   pSub: Subscription
   dSub: Subscription
-  searchStr = ''
+  searchStr = ""
+
+ 
 
 
-  constructor(private jobsService: JobsService,
-    private alert: AlertService) {
+  constructor(
+    private jobsService: JobsService,
+    private alert: AlertService,
+    public authService: AuthService,
+    ) {
   }
 
   ngOnInit() {

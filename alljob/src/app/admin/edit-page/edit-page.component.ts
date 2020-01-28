@@ -37,14 +37,15 @@ export class EditPageComponent implements OnInit {
       this.form = new FormGroup({
       title: new FormControl(job.title, Validators.required),
       text: new FormControl(job.text, Validators.required),
-      author: new FormControl(null, Validators.required),
-      city: new FormControl(null, Validators.required),
-      companyDescription: new FormControl(null, Validators.required),
-      salary: new FormControl(null, Validators.required),
-      type: new FormControl(null, Validators.required),
-      requiredSkills: new FormControl(null, Validators.required),
-      date: new FormControl(null, Validators.required),
-      dateEnd: new FormControl(null, Validators.required)
+      author: new FormControl(job.author, Validators.required),
+      city: new FormControl(job.city, Validators.required),
+      companyDescription: new FormControl(job.companyDescription, Validators.required),
+      salary: new FormControl(job.salary, Validators.required),
+      type: new FormControl(job.type, Validators.required),
+      requiredSkills: new FormControl(job.requiredSkills, Validators.required),
+      date: new FormControl(job.date, Validators.required),
+      dateEnd: new FormControl(job.dateEnd, Validators.required),
+      email_user: new FormControl(job.email_user)
       })
     })
   }
@@ -74,7 +75,8 @@ export class EditPageComponent implements OnInit {
       type: this.form.value.type,
       requiredSkills: this.form.value.requiredSkills,
       date: this.form.value.date,
-      dateEnd: this.form.value.dateEnd
+      dateEnd: this.form.value.dateEnd,
+      email_user: this.form.value.email_user
     }).subscribe(() => {
       this.submitted = false
       this.alert.success('The job was update')

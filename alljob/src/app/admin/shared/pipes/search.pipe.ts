@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
     }
 
     return jobs.filter(job => {
-      return job.title.toLowerCase().includes(search.toLowerCase())
+      return job.email_user.toLowerCase().includes(search.toLowerCase())
     })
   }
 
